@@ -1,0 +1,25 @@
+.tu_slidepane{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none;
+}
+.tu_slidepane.show{
+    display: block;
+}
+
+.tu_slidepane_overlay{
+    z-index: 900;
+}
+
+.tu_slidepane_content{
+    width: 320px;
+    z-index: 901;
+    height: 100vh;
+    box-shadow: -5px 0 20px #0003;
+    overflow-y: auto;
+    transition: 1s ease transform;
+}
