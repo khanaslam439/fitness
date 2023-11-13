@@ -30,7 +30,7 @@ export default function Trainers(){
                     <Filter />
                     <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
                         {trainers && trainers.length > 0 && trainers.map((trainer,index) => {
-                            const detail = {index, trainerId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
+                            const detail = {index, profileId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
                             return <TrainerCard {...detail} />
                         })}
                     </div>
