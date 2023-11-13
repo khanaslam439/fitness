@@ -1,9 +1,9 @@
 import {useRouter} from 'next/navigation'
 
-export default function TrainerCard({trainerId, name, type, filters, level, profileLink, index}){
+export default function TrainerCard({profileId, name, type, filters, level, profileLink, index}){
     const history = useRouter();
     const redirectPage = () => {
-        history.push(`/trainers/${trainerId}`);
+        history.push(`/trainers/${profileId}`);
     }
     return (
         <div className="group relative rounded-2xl shadow hover:shadow-xl border-2 border-indigo-200 dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden cursor-pointer" onClick={e => redirectPage()}>
