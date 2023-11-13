@@ -9,9 +9,9 @@ import { TRAINER_LIST } from '@/constants/common';
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react';
  
-export default function Profile(){
-    const {id} = useParams()
-    let data = TRAINER_LIST.filter(trainer => trainer.id == id)
+export default function ProfileId(){
+    const {profileId} = useParams()
+    let data = TRAINER_LIST.filter(trainer => trainer.id == profileId)
     const [trainerDetail, setTrainerDetail] = useState(data[0]);
     const [activeIndex, setActiveIndex] = useState(0);
     
