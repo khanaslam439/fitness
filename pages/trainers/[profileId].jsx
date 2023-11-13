@@ -10,8 +10,8 @@ import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react';
  
 export default function ProfileId(){
-    const {profileId} = useParams()
-    let data = TRAINER_LIST.filter(trainer => trainer.id == profileId)
+    const params = useParams()
+    let data = TRAINER_LIST.filter(trainer => trainer.id == params?.profileId || 1)
     const [trainerDetail, setTrainerDetail] = useState(data[0]);
     const [activeIndex, setActiveIndex] = useState(0);
     
