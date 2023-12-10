@@ -7,8 +7,12 @@ import Filter from "@/app/_components/Filters";
 import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
 import PageHeader from "@/app/_components/PageHeader";
+import SideFilter from "@/app/_components/SideFilter";
+import BidForm from "@/app/_components/BidForm";
 export default function Trainers(){
     const [trainers, setTrainers] = useState([]);
+    const [activeTrainer, setActiveTrainer] = useState(null);
+    const [isOpen, setOpen] = useState(false);
     useEffect(() => {
         loadTrainers();
     },[])
@@ -27,18 +31,28 @@ export default function Trainers(){
             </section>
             <section className="relative bg-white md:pt-24 pb-10 pt-16 overflow-hidden">
                 <div className="container relative">
-                    <Filter />
-                    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-                        {trainers && trainers.length > 0 && trainers.map((trainer,index) => {
-                            const detail = {index, profileId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
-                            return <TrainerCard {...detail} />
-                        })}
+                    <div className="grid grid-cols-12 gap-[20px] md:grid-cols-12">
+                        <div className="lg:col-span-3 sm:col-span-12">
+                            <SideFilter />
+                        </div>
+                        <div className="lg:col-span-9 sm:col-span-12">
+                            <div className="px-2">
+                                <Filter />
+                            </div>
+                            <div className="grid grid-cols-3 gap-[8px]">
+                                {trainers && trainers.length > 0 && trainers.map((trainer,index) => {
+                                    const detail = {index, trainerId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
+                                    return <TrainerCard setOpen={setOpen} setActiveTrainer={setActiveTrainer} {...detail} />
+                                })}    
+                            </div>
+                            <div className="text-center pb-16 bg-white">
+                                <button className="bg-indigo-600 text-white rounded-lg px-10 py-2">Load More...</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <div className="text-center pb-16 bg-white">
-                <button className="bg-indigo-600 text-white rounded-lg px-10 py-2">Load More...</button>
-            </div>
+            <BidForm visible={isOpen} setVisible={setOpen} activeTrainer={activeTrainer}  />
         </main>
 
         <Footer />
