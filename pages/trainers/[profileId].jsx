@@ -29,11 +29,8 @@ export default function ProfileId(){
             <PageHeader title={trainerDetail?.type} variant={'dark'} />
         </section>
         <section className='bg-white pt-10'>
-            <div className='container grid grid-cols-3 gap-4'>
-                <div>
-                <ProfileCard data={trainerDetail} className={'sticky-100'} />
-                </div>
-                <div className='col-span-2'>
+            <div className='container grid grid-cols-12 gap-[20px]'>
+                <div className='col-span-8'>
                     <div className="">
                         <div className="px-5 border-t border-gray-100 dark:border-slate-800">
                             <ul className="inline-block w-fit flex gap-5 text-center" id="myTab" data-tabs-toggle="#StarterContent" role="tablist">
@@ -80,11 +77,16 @@ export default function ProfileId(){
                                 </div>
                                 
                                 <div className={activeIndex == 1 ? '' : 'hidden'}>
+
                                     <p className="text-slate-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cum vero quae officiis earum odio, consequatur perferendis sapiente quo illum ipsam illo harum maiores minima dolor adipisci recusandae labore? Harum.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                
+                <div className='col-span-4'>
+                    <ProfileCard data={trainerDetail} className={'sticky-100'} />
                 </div>
             </div>
         </section>
