@@ -1,9 +1,6 @@
 "use client";
-
-import TrainerCard from "@/app/_components/TrainerCard";
 import { useEffect, useState } from "react";
 import {BLOGS, TRAINER_LIST} from '@/constants/common'
-import Filter from "@/app/_components/Filters";
 import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
 import PageHeader from "@/app/_components/PageHeader";
