@@ -73,10 +73,8 @@ export const TRAINER_LIST = [{
     name: 'Sanjay Rathod',
     type: 'Gym Trainer',
     filters:[
-        {type:'level', value:'Expert'},
         {type:'session', value:'2 sessions'}, 
         {type:'distance',value:'20km away'},
-        {type:'lang', value: ['English','Hindi']},
         {type:'rating', value: 2.5},
         {type:'mode', value: 'Online'}
     ],
@@ -84,7 +82,44 @@ export const TRAINER_LIST = [{
 }]
 
 export const ADV_FILTER = [
-    {type:'gender', data: ['any', 'male','female']},
+    {type:'categories', data: ['Fitness & Nutrition', 'Personal Training','Yoga Classes', 'Fit kids', 'Zumba Dance']},
     {type:'level', data: ['Beginner',' Intermediate', 'Expert']},
-    {type:'language', data: ['English', 'Hindi', 'Other']}
+    {type:'mode', data: ['Online', 'At Home', 'Society Club']}
 ]
+
+export const BLOGS = [{
+    title: 'How to Maximize Time Spent at the Gym',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog1.jpg',
+    link: '1'
+},{
+    title: 'Today is the Best Day to Start Training',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog2.jpg',
+    link: '2'
+},{
+    title: 'Simple Condition for all Around Fitness',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog3.jpg',
+    link: '3'
+},{
+    title: 'How to reduce belly fat',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog2.jpg',
+    link: '4'
+},{
+    title: '10 ways to maximize your immunity',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog1.jpg',
+    link: '5'
+},{
+    title: '5 best food to increase blood flow',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog3.jpg',
+    link: "6"
+},{
+    title: 'Top excersize to increase height naturally',
+    desc: 'The phrasal sequence of the is now so that many campaign and benefit',
+    imgUrl:'/assets/images/gym/blog2.jpg',
+    link: '7'
+}]
