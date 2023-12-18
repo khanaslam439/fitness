@@ -1,22 +1,32 @@
-"use client";
+
 import Footer from '@/app/_components/Footer';
 import Header from '@/app/_components/Header';
-import PageHeader from '@/app/_components/PageHeader';
 import ProfileCard from '@/app/_components/ProfileCard';
 import { TRAINER_LIST } from '@/constants/common';
 import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'; 
+import { useCallback, useEffect, useState } from 'react'; 
 import SliderWidget from '@/app/_components/SliderWidget';
-import Modal from '@/app/_components/Modal';
+import FeatureBadge from '@/app/_components/FeatureBadge';
+import ReviewForm from '@/app/_components/ReviewForm';
 
 export default function ProfileId(){
     const params = useParams();
-    var [trainer, setTrainer] = useState([]);
+    const [trainer, setTrainer] = useState([]);
+    const [isOpen, openForm] = useState(true)
     useEffect(() => {
         const tr_list = TRAINER_LIST.filter(trainer => trainer.id == params?.profileId)
         setTrainer(tr_list[0])
     },[params])   
+    
     const [activeIndex, setActiveIndex] = useState(0)
+    
+    const getFilterData = useCallback(type => {
+        const filterData = trainer?.filters?.filter(el => el.type === type && el);    
+        if(!filterData) return []
+        console.log(filterData)
+            return type == 'lang' ? filterData[0].value : [filterData[0].value];
+    },[trainer]) 
+
     return (
         <>
         <Header />
@@ -43,20 +53,25 @@ export default function ProfileId(){
                                 </li>
                             </ul>
 
-                            <div id="StarterContent" className="mt-4 border bg-white p-5 shadow-lg">
+                            <div id="StarterContent" className="mt-4 rounded-xl bg-white p-5 shadow-xl">
                                 <div className={activeIndex == 0 ? '' : 'hidden'}>
-
-                                    <p className="text-slate-400 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cum vero quae officiis earum odio, consequatur perferendis sapiente quo illum ipsam illo harum maiores minima dolor adipisci recusandae labore? Harum.</p>
+                                    <h4 className='text-gray-400 mb-2'>Overview</h4>
+                                    <p className="text-black text-md italic font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cum vero quae officiis earum odio, consequatur perferendis sapiente quo illum ipsam illo harum maiores minima dolor adipisci recusandae labore? Harum.</p>
+                                    <div className='my-10 grid grid-cols-4'>
+                                    <FeatureBadge data={getFilterData('level')} title={'Level'} />
+                                    <FeatureBadge data={getFilterData('session')} title={'Session'} />
+                                    <FeatureBadge data={getFilterData('mode')} title={'Training Mode'} />
+                                    <FeatureBadge data={getFilterData('lang')} title={'Language'} />
+                                    </div>
                                     <div className='my-10'></div>
-                                    
-                                    <h4 className='text-md font-medium mb-2'>Localization</h4>
-                                    <p className="text-slate-400">I do travel up to 20km from New Delhi</p>
+                                    <h4 className='text-md text-gray-400 mb-2'>Localization</h4>
+                                    <p className="text-black font-bold">I do travel up to 20km from New Delhi</p>
                                 </div>
                                 
                                 <div className={activeIndex == 1 ? '' : 'hidden'}>
                                     {/* <div className=''></div> */}
-                                    <div className='grid grid-cols-2 w-100'>
-                                        <div className='text-center'>
+                                    <div className='grid grid-cols-12 w-100'>
+                                        <div className='text-center col-span-4'>
                                             <div className='bg-orange-400 font-bold mb-4 rounded w-fit px-7 mx-auto py-2'>4.0</div>
                                             <div>
                                                 <i className='mdi mdi-star text-[21px] text-orange-400'></i>
@@ -66,9 +81,9 @@ export default function ProfileId(){
                                                 <i className='mdi mdi-star-outline text-[21px] text-orange-400'></i>
                                             </div>
                                             <label className='m-0'>Based on 6 Reviews</label>
-                                            <button onClick={() => {}}   className='bg-indigo-400 p-2 px-6 text-white my-4 block mx-auto'>Write a review</button>
+                                            <button onClick={() => openForm(true)}   className='bg-indigo-400 p-2 px-6 text-white my-4 block mx-auto'>Write a review</button>
                                         </div>
-                                        <div>
+                                        <div className='col-span-8'>
                                             <SliderWidget />
                                         </div>
 
@@ -183,7 +198,9 @@ export default function ProfileId(){
                 </div>
             </div>
         </section>
+        
         <div className='py-10 bg-white'></div>
+        <ReviewForm isOpen={isOpen} openForm={openForm} />
         <Footer />
         </>
     )
