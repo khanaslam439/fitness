@@ -76,27 +76,27 @@ export default function ProfileCard({data}){
                 <ul className="list-none  space-y-2 mb-5">
                     <li className="flex justify-between">
                         <span className="text-[14px] font-medium"><i className="uil uil-certificate"></i>Body Building</span>
-                        <a href="#" className="text-gray">
+                        <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
                             <i className="uil uil-angle-right me-2 text-[18px]"></i>
                         </a>
                     </li>
                     
                     <li className="flex justify-between">
                         <span className="text-[14px] font-medium"><i className="uil uil-certificate"></i>Nutritionist</span>
-                        <a href="#" className="text-gray">
+                        <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
                             <i className="uil uil-angle-right me-2 text-[18px]"></i>
                         </a>
                     </li>
                     
                     <li className="flex justify-between">
                         <span className="text-[14px] font-medium"><i className="uil uil-certificate"></i>Self Defense</span>
-                        <a href="#" className="text-gray">
+                        <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
                             <i className="uil uil-angle-right me-2 text-[18px]"></i>
                         </a>
                     </li>
                     <li className="flex justify-between">
                         <span className="text-[14px] font-medium"><i className="uil uil-certificate"></i>Weight Loss</span>
-                        <a href="#" className="text-gray">
+                        <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
                             <i className="uil uil-angle-right me-2 text-[18px]"></i>
                         </a>
                     </li>
