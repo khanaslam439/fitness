@@ -27,7 +27,7 @@ export default function FilterSlider({filters, closeSlider, isToShowDialog}){
                     </div>
                     <div className="tu_slidepane_body p-4 relative overflow-y-auto" style={{height: 'calc(100vh - 135px)'}}>
                         {
-                            filters.map(filter => <FilterList filters={filters} filter={filter} />)
+                            filters.map((filter,ID) => <FilterList key={ID} filters={filters} filter={filter} />)
                         }
                     </div>
                     <div className='tu_slidepane_footer p-4'>

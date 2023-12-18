@@ -1,6 +1,8 @@
 import ServiceCard from "../ServiceCard";
+import { useRouter } from "next/navigation";
 
 const Modal = ({onCloseHander, minWidth=600}) => {
+    const history = useRouter()
     return (
         <div className="relative" aria-labelledby="modal-title" role="dialog" aria-modal="true" style={{zIndex: 1000}}>
             <div className="fixed inset-0 bg-dark bg-opacity-50 transition-opacity"></div>
@@ -11,9 +13,9 @@ const Modal = ({onCloseHander, minWidth=600}) => {
                         <h3 className="text-base text-xl font-black leading-6 text-indigo-600 text-center" id="modal-title">Choose Type of Service</h3>
                         <div className="">
                             <div className="flex justify-center gap-5">
-                                <ServiceCard title="Online Training" imageUrl={'/assets/images/fitness/online-training.webp'} onClickHander={e => onCloseHander(false)} />
-                                <ServiceCard title="Training At Home" imageUrl={'/assets/images/fitness/home-training.jpg'} onClickHander={e => onCloseHander(false)} />
-                                <ServiceCard title="Society Clubs" imageUrl={'/assets/images/fitness/society-club.webp'} onClickHander={e => onCloseHander(false)} />
+                                <ServiceCard title="Online Training" imageUrl={'/assets/images/fitness/online-training.webp'} onClickHander={e => history.push('/trainers')} />
+                                <ServiceCard title="Training At Home" imageUrl={'/assets/images/fitness/home-training.jpg'} onClickHander={e => history.push('/trainers')} />
+                                <ServiceCard title="Society Clubs" imageUrl={'/assets/images/fitness/society-club.webp'} onClickHander={e => history.push('/trainers')} />
                             </div>
                         </div>
                     </div>

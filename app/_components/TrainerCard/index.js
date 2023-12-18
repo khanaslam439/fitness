@@ -1,16 +1,10 @@
 import {useRouter} from 'next/navigation'
 
-export default function TrainerCard({trainerId, name, type, filters, level, profileLink, index, setOpen, setActiveTrainer}){
+export default function TrainerCard({trainerId, name, type, index, setOpen, setActiveTrainer}){
     const history = useRouter();
     const redirectPage = () => {
         history.push(`/trainers/${trainerId}`);
     }
-    const bg = ['to-red-600/70 from-indigo-600/70',
-                'to-fuchsia-600/70 from-green-600/70',
-                'to-pink-600/70 from-purple-600/70',
-                'to-indigo-600/70 from-blue-600/70',
-                'to-sky-600/70 from-yellow-600/70',
-                'to-orange-600/70 from-indigo-600/70']
 
     const openPopup = () => {
         setOpen(true);
@@ -20,39 +14,36 @@ export default function TrainerCard({trainerId, name, type, filters, level, prof
         setActiveTrainer({...current});
     }
     return (
-        <>
-            <div className="group relative overflow-hidden rounded-md shadow dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-800 duration-500 ease-in-out m-2 mb-5" >
-                <div className={`py-12 bg-gradient-to-r ${bg[Math.floor(Math.random() * 5)]}`}></div>
-                <div className="p-5 px-4 pt-0 -mt-10 text-center">
-                    <img onClick={e => (e.preventDefault(),redirectPage())} src={`assets/images/client/0${index+1}.jpg`} className="h-20 w-20 rounded-full shadow-lg dark:shadow-gray-800 mx-auto" alt="" />
+            <div className="group relative p-2 rounded-md shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 bg-white dark:bg-slate-900 duration-500 text-center h-fit"> 
+                <div className="mt-12 mb-4">
+                    <img src={`/assets/images/client/0${trainerId - 100}.jpg`} className="rounded-full shadow-md h-20 w-20 mx-auto block" alt="" />
 
-                    <div className="mt-4">
-                        <h4 onClick={e => (e.preventDefault(),redirectPage())}  className="mb-0 text-lg font-semibold hover:text-indigo-600 duration-500 ease-in-out block">{name}</h4>
-                        <p className="mt-0 text-slate-400 text-sm d-block mb-2">{type}</p>
-                        <div className='flex flex-col flex-wrap mb-5'>
-                        {filters && filters.length>0 && filters.map((elem, index) =>  
-                        (elem.type == 'distance' || elem.type=='session' || elem.type == 'rating') && 
-                            <p href="#" className="text-[10px] font-normal mb-0">
-                                {elem.type == 'distance' && <i className="uil uil-map text-indigo-500 text-[14px] relative top-[.5px] mr-1"></i>}
-                                {elem.type == 'session' && <i className="uil uil-book-open text-indigo-500 text-[14px] relative top-[.5px] mr-1"></i>}
-                                {elem.type == 'rating' && <i className="uil uil-star text-indigo-500 text-[14px] relative top-[.5px] mr-1"></i>}
-                                {elem.value} {elem.type == 'rating' && 'Rating'}
-                            </p>
-                        )}
-                        </div>
-                        <div className='grid grid-cols-2 gap-[10px]'>
-                            <button onClick={e => openPopup()} set className='text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600/10 hover:border-indigo-600 text-indigo-600 hover:text-white rounded-md text-sm'>
-                                <i className='mdi mdi-gavel fs-5 me-2'></i>
-                                Place a Bid
-                            </button>
-                            <button className='text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-600/5 border-indigo-600 hover:border-indigo-700 text-white rounded-md text-sm hover:text-indigo-600'>
-                                <i className='mdi mdi-cart fs-5 me-2'></i>
-                                Buy Now
-                            </button>
-                        </div>
+                    <div className="mt-3">
+                        <a href="#" onClick={redirectPage} className="text-lg font-medium hover:text-indigo-600 duration-500 block">{name}</a>
+                        <span className="block text-sm text-slate-400">{type}</span>
                     </div>
                 </div>
+
+                <div className="flex items-center justify-around mb-0 text-indigo-400" style={{fontSize: 12}}>
+                    <span className="text-slate-400"><i className="uil uil-book-open text-indigo-400 me-1"></i>20 sessions</span>
+                    <span className="text-slate-400"><i className="uil uil-map text-indigo-600 me-1"></i>20km away</span>
+                    <span className="text-slate-400"><i className="uil uil-star text-indigo-600 me-1"></i>4.5</span>
+                </div>
+
+                <span className="bg-indigo-600/5 text-indigo-600 text-xs font-bold px-2.5 py-0.5 rounded h-5 mx-1">At Home</span>
+                <span className="bg-indigo-600/5 text-indigo-600 text-xs font-bold px-2.5 py-0.5 rounded h-5 mx-1">Online</span>
+                <span className="bg-indigo-600/5 text-indigo-600 text-xs font-bold px-2.5 py-0.5 rounded h-5 mx-1">Offline</span>
+                
+
+                <div className="grid grid-cols-2 gap-[10px]" style={{margin: '20px 10px 10px'}}>                          
+                    <button className="text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600/10 hover:border-indigo-600 text-indigo-600 hover:text-white rounded-md text-sm"><i className="mdi mdi-graph fs-5 me-2"></i>See Plans</button><button className="text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-600/5 border-indigo-600 hover:border-indigo-700 text-white rounded-md text-sm hover:text-indigo-600"><i className="mdi mdi-account-search fs-5 me-2"></i>View Profile</button>
+                </div>
+                <div className="absolute top-4 start-4">
+                    <span className="bg-orange-500 text-white text-sm font-medium px-4 py-1 rounded-full h-[28px]">Featured</span>
+                </div>
+                <div className="absolute top-4 end-4">
+                    <a href="#" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600/5 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-indigo-600 hover:text-white"><i className="uil uil-heart"></i></a>
+                </div>
             </div>
-        </>
     )
 }
