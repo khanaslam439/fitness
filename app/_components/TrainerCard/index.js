@@ -2,8 +2,8 @@ import {useRouter} from 'next/navigation'
 
 export default function TrainerCard({trainerId, name, type, index, setOpen, setActiveTrainer}){
     const history = useRouter();
-    const redirectPage = () => {
-        history.push(`/trainers/${trainerId}`);
+    const redirectPage = (url) => {
+        history.push(url);
     }
 
     const openPopup = () => {
@@ -14,12 +14,12 @@ export default function TrainerCard({trainerId, name, type, index, setOpen, setA
         setActiveTrainer({...current});
     }
     return (
-            <div className="group relative p-2 rounded-md shadow dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 bg-white dark:bg-slate-900 duration-500 text-center h-fit"> 
+            <div className="group relative lg:p-2 p-5 lg:rounded-lg rounded-2xl lg:shadow shadow-xl dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 bg-white dark:bg-slate-900 duration-500 text-center border border-gray h-fit"> 
                 <div className="mt-12 mb-4">
-                    <img src={`/assets/images/client/0${trainerId - 100}.jpg`} className="rounded-full shadow-md h-20 w-20 mx-auto block" alt="" />
+                    <img src={`/assets/images/client/0${trainerId - 100}.jpg`} className="rounded-full shadow-md w-[120px] lg:h-20 lg:w-20 mx-auto block" alt="" />
 
                     <div className="mt-3">
-                        <a href="#" onClick={redirectPage} className="text-lg font-medium hover:text-indigo-600 duration-500 block">{name}</a>
+                        <a href="#" onClick={e => redirectPage(`/trainers/${trainerId}`)} className="text-lg font-medium hover:text-indigo-600 duration-500 block">{name}</a>
                         <span className="block text-sm text-slate-400">{type}</span>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ export default function TrainerCard({trainerId, name, type, index, setOpen, setA
                 
 
                 <div className="grid grid-cols-2 gap-[10px]" style={{margin: '20px 10px 10px'}}>                          
-                    <button className="text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600/10 hover:border-indigo-600 text-indigo-600 hover:text-white rounded-md text-sm"><i className="mdi mdi-graph fs-5 me-2"></i>See Plans</button><button className="text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-600/5 border-indigo-600 hover:border-indigo-700 text-white rounded-md text-sm hover:text-indigo-600"><i className="mdi mdi-account-search fs-5 me-2"></i>View Profile</button>
+                    <button onClick={e => redirectPage('/plans')} className="text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600/10 hover:border-indigo-600 text-indigo-600 hover:text-white rounded-md text-sm"><i className="mdi mdi-graph fs-5 me-2"></i>See Plans</button><button onClick={e => redirectPage(`/trainers/${trainerId}`)} className="text-xs p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-600/5 border-indigo-600 hover:border-indigo-700 text-white rounded-md text-sm hover:text-indigo-600"><i className="mdi mdi-account-search fs-5 me-2"></i>View Profile</button>
                 </div>
                 <div className="absolute top-4 start-4">
                     <span className="bg-orange-500 text-white text-sm font-medium px-4 py-1 rounded-full h-[28px]">Featured</span>
