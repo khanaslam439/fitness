@@ -41,7 +41,7 @@ const Header = ({varients='transparent'}) => {
                         <img src="assets/images/logo-light.png" height="24" className="hidden dark:inline-block" alt="" />
                     </Link>
 
-                    <div className="menu-extras hidden md:block">
+                    <div className="menu-extras hidden lg:block">
                         <div className="menu-item">
                             <a className="navbar-toggle" id="isToggle">
                                 <div className="lines">
