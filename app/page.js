@@ -5,10 +5,13 @@ import { useState } from 'react'
 import Modal from './_components/Modal'
 import Header from './_components/Header'
 import Footer from './_components/Footer'
+import BlogCard from './_components/BlogCard'
+import { BLOGS } from '@/constants/common'
 
 export default function Home() {
     const [showPopup,setShowPopup] = useState(false);
-    const onClickHander = (serviceType) => {
+    const blogList = BLOGS;
+    const onClickHander = () => {
         setShowPopup(true)
     }
 
@@ -19,12 +22,12 @@ export default function Home() {
     return (
     <>  
         <Header />
-        <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed" style={{backgroundImage: "url('/assets/images/fitness/hero.jpg')"}}>
+        <section className="relative md:flex md:h-screen items-center md:py-0 lg:pt-36 lg:pb-56 py-20 bg-no-repeat bg-center bg-cover bg-fixed" style={{backgroundImage: "url('/assets/images/fitness/hero.jpg')"}}>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-slate-900"></div>
             <div className="container relative">
                 <div className="grid grid-cols-1 mt-10">
-                    <h4 className="lg:leading-normal leading-normal text-white text-4xl lg:text-5xl mb-5 font-bold">Find Your <br /> Best Trainer Here!</h4>
-                    <p className="text-slate-400 text-lg max-w-xl">Fitness.Web is made up of 75 people at the Embassy of Knowledge Sharing who are here to help you share your passions in 27 different countries and in 14 different languages.</p>
+                    <h4 className="lg:leading-normal leading-normal text-white text-3xl md:text-4xl lg:text-5xl mb-5 font-bold">Find Your <br /> Best Trainer Here!</h4>
+                    <p className="text-slate-400 lg:text-lg text-sm max-w-xl">Fitness.Web is made up of 75 people at the Embassy of Knowledge Sharing who are here to help you share your passions in 27 different countries and in 14 different languages.</p>
                 
                     <div className="grid lg:grid-cols-12 grid-cols-1" id="reserve-form">
                         <div className="lg:col-span-10 mt-8">
@@ -56,11 +59,11 @@ export default function Home() {
 
         <section className="relative md:py-24 py-16 bg-white" id="all-services">
             <div className="grid grid-cols-1 pb-8 text-center">
-                <h6 className="mb-4 text-base font-medium text-indigo-600">We believe in building each other and hence</h6>
                 <h3 className="mb-0 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">Choose your services</h3>
+                <h6 className="mb-5 text-base font-medium text-indigo-600">We believe in building each other and hence</h6>
             </div>
             <div className="container relative">
-                <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-[30px]">
+                <div className="grid grid-cols-3 lg:grid-cols-5 md:grid-cols-2 lg:gap-[30px] gap-[15px]">
                     <ServiceCard title="Fitness & Nutrition" imageUrl={'/assets/images/fitness/fitness-nutrition.jpg'} onClickHander={onClickHander} />
                     <ServiceCard title="Personal Training" imageUrl={'/assets/images/fitness/personal-training.webp'} onClickHander={onClickHander} />
                     <ServiceCard title="Yoga Classes" imageUrl={'/assets/images/fitness/yoga.jpg'} onClickHander={onClickHander} />
@@ -263,44 +266,9 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-8 gap-[30px]">
-                <div className="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
-                    <img src="assets/images/gym/blog1.jpg" alt="" />
-
-                    <div className="content p-6">
-                        <a href="blog-detail.html" className="title h5 text-lg font-medium hover:text-indigo-600 duration-500 ease-in-out">How to Maximize Time Spent at the Gym</a>
-                        <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p>
-                        
-                        <div className="mt-4">
-                            <a href="blog-detail.html" className="relative inline-block tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Read More <i className="uil uil-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
-                    <img src="assets/images/gym/blog2.jpg" alt="" />
-
-                    <div className="content p-6">
-                        <a href="blog-detail.html" className="title h5 text-lg font-medium hover:text-indigo-600 duration-500 ease-in-out">Today is the Best Day to Start Training</a>
-                        <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p>
-                        
-                        <div className="mt-4">
-                            <a href="blog-detail.html" className="relative inline-block tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Read More <i className="uil uil-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
-                    <img src="assets/images/gym/blog3.jpg" alt="" />
-
-                    <div className="content p-6">
-                        <a href="blog-detail.html" className="title h5 text-lg font-medium hover:text-indigo-600 duration-500 ease-in-out">Simple Condition for all Around Fitness</a>
-                        <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p>
-                        
-                        <div className="mt-4">
-                            <a href="blog-detail.html" className="relative inline-block tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Read More <i className="uil uil-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                {blogList.map((blog,index) => index < 3 && (
+                    <BlogCard title={blog.title} desc={blog.desc} link={blog.link} imgUrl={blog.imgUrl} />
+                ))}
             </div>
         </div>
 
