@@ -23,23 +23,21 @@ export default function Trainers(){
     return (
         <>
         <Header />
-        {/* content part */}
-        <main>
-            <section className="relative table w-full pt-48 pb-10 bg-center bg-cover bg-[url(/assets/images/fitness/inner-page-banner-2.jpg)]">
+            <section className="relative table w-full pt-20 pb-0">
                 <div className="absolute inset-0 bg-gradient-to-t to-black from-black/50"></div>
                 <PageHeader title={'Trainers'} />
             </section>
-            <section className="relative bg-white md:pt-24 pb-10 pt-16 overflow-hidden">
+            <section className="relative bg-white lg:py-10 py-4   overflow-hidden">
                 <div className="container relative">
                     <div className="grid grid-cols-12 gap-[20px] md:grid-cols-12">
-                        <div className="lg:col-span-3 sm:col-span-12">
+                        <div className="lg:col-span-3 col-span-12 hidden lg:block">
                             <SideFilter />
                         </div>
-                        <div className="lg:col-span-9 sm:col-span-12">
+                        <div className="lg:col-span-9 col-span-12">
                             <div className="px-2">
                                 <Filter />
                             </div>
-                            <div className="grid grid-cols-3 gap-[10px]">
+                            <div className="grid lg:grid-cols-3 lg:gap-[10px] gap-[20px]">
                                 {trainers && trainers.length > 0 && trainers.map((trainer,index) => {
                                     const detail = {index, trainerId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
                                     return <TrainerCard key={index} setOpen={setOpen} setActiveTrainer={setActiveTrainer} {...detail} />
@@ -53,7 +51,6 @@ export default function Trainers(){
                 </div>
             </section>
             <BidForm visible={isOpen} setVisible={setOpen} activeTrainer={activeTrainer}  />
-        </main>
 
         <Footer />
         </>
