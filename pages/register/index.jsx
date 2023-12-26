@@ -1,23 +1,23 @@
 const Register = () => {
     return(
-        <section className="md:h-screen py-36 flex items-center">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+        <section className="md:h-screen lg:py-36 pb-20 flex bg-white items-center">
+            <div className="absolute inset-0 md:bg-gradient-to-b from-transparent md:to-black to-white"></div>
             <div className="relative flex w-full">
-                <div className="w-[60%] h-[100vh] bg-[url('/assets/images/gym/09.jpg')] bg-no-repeat bg-center bg-cover"></div>
-                <div className="w-[40%] h-[100vh] px-6 bg-white flex justify-center items-center">
-                    <div className="max-w-[400px] w-full p-6 dark:bg-slate-900">
+                <div className="hidden md:block w-[60%] h-[100vh] bg-[url('/assets/images/gym/09.jpg')] bg-no-repeat bg-center bg-cover"></div>
+                <div className="md:w-[40%] h-[100vh] px-6 lg:bg-white flex justify-center items-center">
+                    <div className="md:max-w-[400px] w-full p-6 dark:bg-slate-900">
                         <h1 className="mb-10 text-4xl capitalize font-semibold">Register Yourself</h1>
                         <form className="text-start">
                             <div className="grid grid-cols-1">
                                 <div className="mb-3">
-                                    <label className="block mb-4 text-sm">Who are you?</label>
+                                    <label className="block mb-4 text-sm font-bold">Who are you?</label>
                                     <label className="inline-flex mr-5 mb-4 items-center">
                                         <input type="radio" className="form-radio border-gray-400 dark:border-gray-800 text-indigo-600 focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-25 me-2" checked value={''} name="userType" />
-                                        <span className="text-slate-400 text-sm">User</span>
+                                        <span className="text-slate-400 text-sm font-bold">User</span>
                                     </label>
                                     <label className="inline-flex mr-5 items-center">
                                         <input type="radio" className="form-radio border-gray-400 dark:border-gray-800 text-indigo-600 focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-25 me-2" checked value={''} name="userType" />
-                                        <span className="text-slate-400 text-sm">Trainer</span>
+                                        <span className="text-slate-400 text-sm font-bold">Trainer</span>
                                     </label>
                                 </div>
                                 <div className="mb-3">

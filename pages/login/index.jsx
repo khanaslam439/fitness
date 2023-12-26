@@ -1,9 +1,9 @@
 const Login = () => {
     return(
-        <section className="md:h-screen py-36 flex items-center">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+        <section className="h-[100vh] md:h-screen lg:py-36 flex items-center bg-white">
+            <div className="absolute inset-0 md:bg-gradient-to-b from-transparent to-white"></div>
             <div className="relative flex w-full">
-                <div className="w-[40%] h-[100vh] px-6 bg-white flex items-center">
+                <div className="w-full lg:w-[40%] lg:h-[100vh] px-6 flex lg:bg-white items-center">
                     <div className="max-w-[400px] w-full p-6 dark:bg-slate-900">
                         <h5 className="mb-10 text-4xl font-semibold">Welcome again</h5>
                         <form className="text-start">
@@ -32,7 +32,7 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
-                <div className="w-[60%] h-[100vh] bg-[url('/assets/images/gym/about02.jpg')] bg-no-repeat bg-center bg-cover"></div>
+                <div className="hidden lg:block w-[60%] h-[100vh] bg-[url('/assets/images/gym/about02.jpg')] bg-no-repeat bg-center bg-cover"></div>
             </div>
         </section>
     )
