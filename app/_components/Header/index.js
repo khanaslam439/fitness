@@ -41,7 +41,7 @@ const Header = ({varients='transparent'}) => {
                         <img src="assets/images/logo-light.png" height="24" className="hidden dark:inline-block" alt="" />
                     </Link>
 
-                    <div className="menu-extras hidden lg:block">
+                    <div className="menu-extras hidden md:block">
                         <div className="menu-item">
                             <a className="navbar-toggle" id="isToggle">
                                 <div className="lines">
@@ -64,18 +64,18 @@ const Header = ({varients='transparent'}) => {
                 
                     <div id="navigation">
                         <ul className={`navigation-menu ${varients == 'dark' ? 'nav-dark' : 'nav-light' }`}>
-                            <li><a href="/" className="sub-menu-item text-white">Home</a></li>
+                            <li><a href="/">Home</a></li>
 
-                            <li className="has-submenu parent-parent-menu-item">
-                                <a href="/trainers" className="text-white">Search Trainers</a>
+                            <li className="parent-menu-item">
+                                <a href="/trainers">Find Trainers</a>
                             </li>
 
-                            <li className="has-submenu parent-menu-item">
-                                <a href="/blogs" className="text-white">Blogs</a>
+                            <li className="parent-menu-item">
+                                <a href="/blogs">Blogs</a>
                             </li>
 
                             <li>
-                                <a href="/contact-us" className="sub-menu-item text-white">Contact</a>
+                                <a href="/contact-us" className="sub-menu-item">Contact</a>
                             </li>
                         </ul>
                     </div>

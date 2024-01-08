@@ -34,8 +34,8 @@ const Footer = function(){
 
                     
                             <div className="grid grid-cols-1 mt-12">
-                                <div className="text-center">
-                                    <img src="/assets/images/logo/logo-white.png" className="w-[150px] block mx-auto" alt="" />
+                                <div className="text-block center">
+                                    <img src="/assets/images/logo/logo-white.png" className="w-[150px] mx-auto" alt="" />
                                 </div>
 
                                 <ul className="list-none text-center mt-6">
@@ -59,34 +59,34 @@ const Footer = function(){
                 </div>
             </div>
         </footer>
-        <ul className="z-10 border-t-2 border-t-indigo-500 fixed bottom-0 left-0 right-0 lg:hidden bg-white grid grid-cols-4 text-center">
-            <li className="transition-all duration-500 hover:bg-indigo-500 hover:text-white  py-3">
+        <ul className="z-10 border-t-4 border-t-indigo-500 fixed bottom-0 left-0 right-0 lg:hidden bg-white grid grid-cols-4 text-center">
+            <li className="transition-all duration-500 hover:bg-indigo-500 hover:text-white py-3">
                 <Link href={'/'}>
-                    <i className="text-3xl text-indigo-500 hover:text-white uil uil-home"></i>
-                    <span className="text-sm block">Home</span>
+                    <i className="text-[28px] block text-indigo-500 hover:text-white uil uil-home"></i>
+                    <span className="text-xs leading-4">Home</span>
                 </Link>
             </li>
             <li className="transition-all duration-500 hover:bg-indigo-500 hover:text-white py-3">
                 <Link href={'/trainers'}>
-                    <i className="text-3xl text-indigo-500 hover:text-white uil uil-search"></i>
-                    <span className="text-sm block">Search</span>
+                    <i className="text-[28px] block text-indigo-500 hover:text-white uil uil-search"></i>
+                    <span className="text-xs leading-4">Search</span>
                 </Link>
             </li>
             <li className="transition-all duration-500 hover:bg-indigo-500 hover:text-white py-3">
                 <Link href={'/blogs'}>
-                    <i className="text-3xl text-indigo-500 hover:text-white uil uil-book-open"></i>
-                    <span className="text-sm block">Blogs</span>
+                    <i className="text-[28px] block text-indigo-500 hover:text-white uil uil-calender"></i>
+                    <span className="text-xs leading-4">Events</span>
                 </Link>
             </li>
             <li className="transition-all duration-500 hover:bg-indigo-500 hover:text-white py-3">
                 <Link href={'#'} onClick={e => setVisible(!isVisible)}>
-                    <i className="text-3xl text-indigo-500 hover:text-white uil uil-info-circle"></i>
-                    <span className="text-sm block">Info</span>
+                    <i className="text-[28px] block text-indigo-500 hover:text-white uil uil-info-circle"></i>
+                    <span className="text-xs leading-4">Info</span>
                 </Link>
             </li>
         </ul>  
         {!isVisible && <span style={{backdropFilter:'blur(5px)', zIndex:8}} className="block lg:hidden bg-indigo-500 opacity-75 w-100 h-100 fixed top-0 left-0 right-0 bottom-0"></span>}
-        <div style={{transform: `translateY(${isVisible ? '100%' : '0'})`,zIndex:9}} className="block lg:hidden bg-white rounded-[20px_20px_0_0] text-gray border-t-indigo-500 border-t-4 fixed bottom-[82px] p-10 duration-500 left-0 right-0 vh-100">
+        <div style={{transform: `translateY(${isVisible ? '100%' : '0'})`,zIndex:9}} className="block lg:hidden bg-white rounded-[20px_20px_0_0] text-gray border-t-indigo-500 border-t-4 fixed bottom-[70px] p-10 duration-500 left-0 right-0 vh-100">
             <Image 
                 src={'/assets/images/logo/logo-black.png'}
                 width={150}

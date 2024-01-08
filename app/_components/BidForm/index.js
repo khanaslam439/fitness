@@ -9,13 +9,13 @@ export default function BidForm(prop){
                 <div className="relative bg-white dark:bg-slate-900 rounded-lg shadow dark:shadow-gray-800">
                     <div className="flex justify-between items-center mb-5 border-b border-gray-100 dark:border-gray-700">
                         <div className="flex">
-                            <img className="rounded-full mr-3" src={`assets/images/client/0${(prop?.id - 100)}.jpg`} width={60} height={60} />
+                            <img className="rounded-full mr-3" src={`/assets/images/client/0${(prop?.data?.id - 100)}.jpg`} width={60} height={60} />
                             <div>
                                 <h5 className="text-xl font-semibold mb-0">{prop.data?.name}</h5>
                                 <p className="m-0">{prop.data?.type}</p>
                             </div>
                         </div>
-                        <button onClick={e => prop.setVisible(false)} type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ms-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="NftBid">
+                        <button onClick={e => prop.setVisible(false)} className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ms-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="NftBid">
                             <Image alt='close btn' src={closeBtn} />
                         </button>
                     </div>

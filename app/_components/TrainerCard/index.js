@@ -14,8 +14,8 @@ export default function TrainerCard({trainerId, name, type, index, setOpen, setA
         setActiveTrainer({...current});
     }
     return (
-            <div className="group relative lg:p-2 p-5 lg:rounded-lg rounded-2xl lg:shadow shadow-xl dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 bg-white dark:bg-slate-900 duration-500 text-center border border-gray h-fit"> 
-                <div className="mt-12 mb-4">
+            <div className="mb-5 group relative lg:p-2 p-5 lg:rounded-lg rounded-2xl lg:shadow shadow-xl dark:shadow-gray-800 hover:shadow-md dark:hover:shadow-gray-700 bg-white dark:bg-slate-900 duration-500 text-center border border-gray h-fit"> 
+                <div className="mt-12 mb-10">
                     <img src={`/assets/images/client/0${trainerId - 100}.jpg`} className="rounded-full shadow-md w-[120px] lg:h-20 lg:w-20 mx-auto block" alt="" />
 
                     <div className="mt-3">

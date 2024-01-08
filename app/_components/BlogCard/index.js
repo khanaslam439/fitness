@@ -1,18 +1,26 @@
 import Link from "next/link";
 
-export default function BlogCard({title, desc, imgUrl="assets/images/gym/blog3.jpg", link}){
+export default function BlogCard({video=false, title, desc, imgUrl="assets/images/gym/blog3.jpg", link}){
     return (
-            <div className="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
-                <img src={imgUrl} alt="" />
-
-                <div className="content p-6">
-                    <Link href={`blogs/${link}`} className="title h5 text-lg font-medium hover:text-indigo-600 duration-500 ease-in-out">{title}</Link>
-                    <p className="text-slate-400 mt-3">{desc}</p>
-                    
-                    <div className="mt-4">
-                        <Link href={`blogs/${link}`} className="relative inline-block tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 font-normal hover:text-indigo-600 after:bg-indigo-600 duration-500 ease-in-out">Read More <i className="uil uil-arrow-right"></i></Link>
+        <>
+            {   video && 
+                <div className="blog mb-2 relative overflow-hidden">
+                    <img src={imgUrl} className="h-[200px] w-full object-cover rounded-lg" />
+                    <div className="absolute bg-gray-900 h-[200px] rounded-lg opacity-50 w-full top-0 left-0"></div>
+                    <div className="absolute top-[40%] hover:bg-indigo-600 duration-500 transition-all left-[50%] ml-[-25px] mt-[-25px] w-[50px] h-[50px] rounded-full flex justify-center items-center bg-[rgba(255,255,255,.5)]">
+                        <i className="uil uil-play text-white text-xl cursor-pointer"></i>
                     </div>
+                    <h4 className="my-2 font-bold text-md">{title}</h4>
                 </div>
-            </div>
+            }
+            {!video && <div className="blog mb-2 relative overflow-hidden">
+                <img src={imgUrl} className="h-[300px] w-full object-cover rounded-lg" />
+                <div className="p-4">
+                    <h4 className="my-2 font-bold text-md">{title}</h4>
+                    <p className="mb-4 text-gray-400">{desc}</p>
+                    <Link href="#" className="text-indigo-600 text-md">Read more <i className="uil uil-arrow-right"></i></Link>
+                </div>
+            </div>}
+        </>
     )
 }
