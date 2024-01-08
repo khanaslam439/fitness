@@ -8,6 +8,7 @@ import { useCallback, useEffect, useState } from 'react';
 import SliderWidget from '@/app/_components/SliderWidget';
 import FeatureBadge from '@/app/_components/FeatureBadge';
 import ReviewForm from '@/app/_components/ReviewForm';
+import PageHeader from '@/app/_components/PageHeader';
 
 export default function ProfileId(){
     const params = useParams();
@@ -30,10 +31,7 @@ export default function ProfileId(){
     return (
         <>
         <Header />
-        <section className="relative table w-full pt-10 pb-10">
-            <div className="hidden lg:block absolute inset-0 bg-gradient-to-t to-black from-black/40"></div>
-            {/* <PageHeader title={trainer?.type} variant={'dark'} /> */}
-        </section>
+        <PageHeader title={trainer?.type} subTitle={trainer?.name} variant={'dark'} />
         <section className='bg-gray-100 lg:pt-10 pt-4'>
             <div className='container grid lg:grid-cols-12 gap-[20px]'>
                 
@@ -43,7 +41,7 @@ export default function ProfileId(){
                 </div>
                 <div className='lg:col-span-8'>
                     <div className="">
-                        <div className=" border-t border-gray-100 dark:border-slate-800">
+                        <div className="border-t mb-5 border-gray-100 dark:border-slate-800">
                             <ul className="inline-block w-fit flex gap-5 text-center" id="myTab" data-tabs-toggle="#StarterContent" role="tablist">
                                 <li role="presentation" className="inline-block">
                                     <button className={`text-md ${activeIndex == 1 ? '' : 'font-bold text-indigo-600'}`} onClick={e => setActiveIndex(0)}>About Me</button>
@@ -53,7 +51,7 @@ export default function ProfileId(){
                                 </li>
                             </ul>
 
-                            <div id="StarterContent" className="mt-4 rounded-xl bg-white p-5 border shadow-xl">
+                            <div id="StarterContent" className="mt-4 rounded-xl bg-white p-5 border duration-500 hover:shadow-lg">
                                 <div className={activeIndex == 0 ? '' : 'hidden'}>
                                     <h4 className='text-gray-400 mb-2'>Overview</h4>
                                     <p className="text-black text-md italic font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cum vero quae officiis earum odio <br className='lg:hidden' /><br className='lg:hidden' />consequatur perferendis sapiente quo illum ipsam illo harum maiores minima dolor adipisci recusandae labore? Harum.</p>
@@ -193,6 +191,72 @@ export default function ProfileId(){
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div className="hover:shadow-lg duration-500 mb-5 rounded-lg bg-white p-5">
+                            <h4 className="text-gray-800 font-bold mt-2 text-xl mb-4"><i className='mdi mdi-star-outline me-2'></i>Trainer Speciality</h4>
+                            <ul className="list-none space-x-2 space-y-2 mb-5">
+                                <li className="inline-block">
+                                    <a href="#" className="group flex items-center bg-gray-100 dark:bg-slate-900 hover:text-indigo-600  border-2 border-double border-gray-100 hover:border-indigo-600/30 dark:border-gray-800 hover:dark:border-indigo-600/50 py-1.5 px-4 rounded-full align-middle duration-500">
+                                        <i className="uil uil-airplay me-2 text-[18px]"></i>
+                                        <span className="text-[14px] font-medium">Body Building</span>
+                                    </a>
+                                </li>
+                                
+                                <li className="inline-block">
+                                    <a href="#" className="group flex items-center bg-gray-100 dark:bg-slate-900 hover:text-indigo-600  border-2 border-double border-gray-100 hover:border-indigo-600/30 dark:border-gray-800 hover:dark:border-indigo-600/50 py-1.5 px-4 rounded-full align-middle duration-500">
+                                        <i className="uil uil-at me-2 text-[18px]"></i>
+                                        <span className="text-[14px] font-medium">Fitness</span>
+                                    </a>
+                                </li>
+                                
+                                <li className="inline-block">
+                                    <a href="#" className="group flex items-center bg-gray-100 dark:bg-slate-900 hover:text-indigo-600 border-2 border-double border-gray-100 hover:border-indigo-600/30 dark:border-gray-800 hover:dark:border-indigo-600/50 py-1.5 px-4 rounded-full align-middle duration-500">
+                                        <i className="uil uil-award me-2 text-[18px]"></i>
+                                        <span className="text-[14px] font-medium">Nutritionist</span>
+                                    </a>
+                                </li>
+                                
+                                <li className="inline-block">
+                                    <a href="#" className="group flex items-center bg-gray-100 dark:bg-slate-900 hover:text-indigo-600 border-2 border-double border-gray-100 hover:border-indigo-600/30 dark:border-gray-800 hover:dark:border-indigo-600/50 py-1.5 px-4 rounded-full align-middle duration-500">
+                                        <i className="uil uil-bag me-2 text-[18px]"></i>
+                                        <span className="text-[14px] font-medium">Self Defense</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+
+                        <div className="hover:shadow-lg mb-5 rounded-lg bg-white p-5">
+                            <h4 className="text-gray-800 font-bold mt-2 text-xl mb-4"> <i className="uil uil-trophy text-[21px] me-2"></i>Certifications</h4>
+                            <ul className="list-none  space-y-2 mb-5">
+                                <li className="flex justify-between">
+                                    <span className="text-[14px] font-medium flex items-center"><i className="uil uil-file mr-2 text-lg"></i>Body Building</span>
+                                    <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
+                                        <i className="uil uil-angle-right text-[18px]"></i>
+                                    </a>
+                                </li>
+                                
+                                <li className="flex justify-between">
+                                    <span className="text-[14px] font-medium flex items-center"><i className="uil uil-file mr-2 text-lg"></i>Nutritionist</span>
+                                    <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
+                                        <i className="uil uil-angle-right text-[18px]"></i>
+                                    </a>
+                                </li>
+                                
+                                <li className="flex justify-between">
+                                    <span className="text-[14px] font-medium flex items-center"><i className="uil uil-file mr-2 text-lg"></i>Self Defense</span>
+                                    <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
+                                        <i className="uil uil-angle-right text-[18px]"></i>
+                                    </a>
+                                </li>
+                                <li className="flex justify-between">
+                                    <span className="text-[14px] font-medium flex items-center"><i className="uil uil-file mr-2 text-lg"></i>Weight Loss</span>
+                                    <a href="/assets/pdf/sample.pdf" target="_blank" className="text-gray">
+                                        <i className="uil uil-angle-right text-[18px]"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

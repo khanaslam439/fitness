@@ -23,12 +23,9 @@ export default function Trainers(){
     return (
         <>
         <Header />
-            <section className="relative table w-full pt-20 pb-0">
-                <div className="absolute inset-0 bg-gradient-to-t to-black from-black/50"></div>
-                <PageHeader title={'Trainers'} />
-            </section>
+            <PageHeader title={'Trainers'} />
             <section className="relative bg-white lg:py-10 py-4   overflow-hidden">
-                <div className="container relative">
+                <div className="lg:p-10 p-5 relative">
                     <div className="grid grid-cols-12 gap-[20px] md:grid-cols-12">
                         <div className="lg:col-span-3 col-span-12 hidden lg:block">
                             <SideFilter />
@@ -37,7 +34,7 @@ export default function Trainers(){
                             <div className="px-2">
                                 <Filter />
                             </div>
-                            <div className="grid lg:grid-cols-3 lg:gap-[10px] gap-[20px]">
+                            <div className="grid lg:grid-cols-3 lg:gap-[20px] gap-[20px]">
                                 {trainers && trainers.length > 0 && trainers.map((trainer,index) => {
                                     const detail = {index, trainerId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
                                     return <TrainerCard key={index} setOpen={setOpen} setActiveTrainer={setActiveTrainer} {...detail} />

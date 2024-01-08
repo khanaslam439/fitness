@@ -6,10 +6,7 @@ export default function Contact(){
     return (
         <>
             <Header />
-            <section className="relative table w-full pt-48 pb-10 bg-center bg-cover bg-[url(/assets/images/fitness/inner-page-banner-2.jpg)]">
-                <div className="absolute inset-0 bg-gradient-to-t to-black from-black/50"></div>
-                <PageHeader title={'Contact Us'} />
-            </section>
+            <PageHeader title={'Contact Us'} />
             <section className="relative md:py-24 py-16 bg-white">
                 <div className="container relative">
                     <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
