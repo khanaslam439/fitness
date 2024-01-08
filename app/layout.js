@@ -1,3 +1,4 @@
+"use client"
 import { Open_Sans } from 'next/font/google'
  
 const poppins = Open_Sans({
@@ -10,7 +11,7 @@ import '../public/assets/libs/choices.js/public/assets/styles/choices.min.css';
 import '../public/assets/libs/tiny-slider/tiny-slider.css';
 import '../public/assets/libs/@iconscout/unicons/css/line.css';
 import '../public/assets/libs/@mdi/font/css/materialdesignicons.min.css';
-import './globals.css'              
+import './globals.css';
 
 
 export default function RootLayout({ children }) {
