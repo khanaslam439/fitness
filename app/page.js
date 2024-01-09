@@ -27,7 +27,7 @@ export default function Home() {
             <div className="container relative">
                 <div className="grid grid-cols-1 mt-10">
                     <h4 className="lg:leading-normal leading-normal text-white text-3xl md:text-4xl lg:text-5xl mb-5 font-bold">Find Your <br /> Best Trainer Here!</h4>
-                    <p className="text-slate-400 lg:text-lg text-sm max-w-xl">Fitness.Web is made up of 75 people at the Embassy of Knowledge Sharing who are here to help you share your passions in 27 different countries and in 14 different languages.</p>
+                    <p className="text-slate-400 lg:text-lg text-sm max-w-xl">Toneup India is made up of 75 people at the Embassy of Knowledge Sharing who are here to help you share your passions in 27 different countries and in 14 different languages.</p>
                 
                     <div className="grid lg:grid-cols-12 grid-cols-1" id="reserve-form">
                         <div className="lg:col-span-10 mt-8">
@@ -259,14 +259,13 @@ export default function Home() {
 
         <div className="container relative md:mt-24 mt-16 mb-24">
             <div className="grid grid-cols-1 pb-8 text-center">
-                <h5 className="font-semibold text-base text-indigo-600 mb-2">Blogs</h5>
-                <h3 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">Our Blogs or News</h3>
+                <h3 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">Our Blogs</h3>
 
                 <p className="text-slate-400 max-w-xl mx-auto">Push your fitness further with our mix of facilities and we'll support you with advice on new and better ways to train.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-8 gap-[30px]">
-                {blogList.map((blog,index) => index < 3 && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 mt-8 gap-[30px]">
+                {blogList.map((blog,index) => index < 2 && (
                     <BlogCard title={blog.title} desc={blog.desc} link={blog.link} imgUrl={blog.imgUrl} />
                 ))}
             </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BidForm from "../BidForm";
 import { useState } from "react";
-export default function ProfileCard({data}){
+export default function ProfileCard({data, isBtnHide=false}){
     const [isVisible, setVisible] = useState(false);
     return (
         <>
@@ -19,11 +19,11 @@ export default function ProfileCard({data}){
                     <h4 className="font-medium mt-0 text-2xl">{data?.name}</h4>
                     <p className="mb-2 text-sm text-gray-400">{data?.type}</p>
                     <label className="mb-5">(<i className="mdi mdi-star text-orange-500"></i>12 Reviews)</label>
-                    <div className="cta_button mb-5 mt-5 lg:mt-0">
-                        <button className='rounded-lg text-md m-2 p-2 px-4 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600 text-indigo-600 hover:text-white'>
+                    <div className="cta_button mt-5 lg:mt-0" style={{opacity:isBtnHide ? 0 : 1}}>
+                        <Link href="/plans" className='rounded-lg text-md m-2 p-2 px-4 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600 text-indigo-600 hover:text-white'>
                             {/* <i className='mdi mdi-cart fs-5 me-2'></i> */}
                             See Plans
-                        </button>
+                        </Link>
                         <button onClick={e => setVisible(true)} className='rounded-lg text-md m-2 p-2 px-4 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-600/5 border-indigo-700 text-white hover:text-indigo-600'>
                             {/* <i className='mdi mdi-cart fs-5 me-2'></i> */}
                             Place a Bid
