@@ -5,36 +5,130 @@ import Header from '@/app/_components/Header';
 import PageHeader from '@/app/_components/PageHeader';
 import { BLOGS } from '@/constants/common';
 import { useParams } from 'next/navigation'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
  
 export default function blogDetail(){
     const params = useParams()
-    let data = BLOGS.filter(trainer => trainer.id == params?.blogDetail || 1)
-    const [trainerDetail, setTrainerDetail] = useState(data[0]);
+    const [blogDetail, setBlogDetail] = useState({});
+    useEffect(() => {
+        debugger;
+        let data = BLOGS.filter(trainer => trainer.link == params?.blogDetail)
+        setBlogDetail(data[0])
+    },[params])
     
     return (
         <>
         <Header />
-        <section className="relative table w-full pt-48 pb-10 bg-center bg-cover bg-[url(/assets/images/fitness/inner-page-banner-2.jpg)]">
-            <div className="absolute inset-0 bg-gradient-to-t to-black from-black/40"></div>
-            <PageHeader title={trainerDetail.title} variant={'dark'} />
-        </section>
-        <section className="mb-20 bg-white">
-            <div className="container blog_detail_box mx-auto">
-                <div className="img_wrapper">
-                    <p className='mb-5 pt-10'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <img src="//picsum.photos/1920/800" className='my-10 w-100 rounded-2xl' alt="" />
+        <PageHeader title="Blog" subTitle={blogDetail?.title} variant={'dark'} />
+        <section className='bg-white p-10 pt-5 px-10'>
+            <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
+                <div class="lg:col-span-9 md:col-span-6">
+                    <div class="p-10 rounded-md">
+                        {blogDetail?.type === 'video' 
+                        ? <video src="/assets/images/demo.mp4" className='rounded-xl object-cover w-full h-[450px] object-auto' controls></video>
+                        : <img src={`${blogDetail?.type == 'recipe' ? '/assets/images/blog/food.jpg' : '/assets/images/gym/blog3.jpg'}`} class="border rounded-md h-[450px] w-full object-cover"  alt="" />}
+                        {blogDetail?.type == 'recipe' && <h4 className='mt-4 mb-10 leading-4'>Recipes Creamy Garlic Parmesan Chicken Salad</h4>}
+
+                        <div class="mt-6">
+                            {blogDetail?.type == 'recipe' && <div>
+                                <h4 className='text-2xl font-bold mb-5'>Nutrition Facts</h4>
+                                <ul className='grid lg:grid-cols-4 grid-cols-2  gap-4 mb-10'>
+                                   <li className='p-4 rounded-lg border flex gap-4 bg-orange-50'>
+                                        <span className='w-4 rounded-full h-4 bg-orange-400 mt-1 inline-block'></span>
+                                        <div>
+                                            <p>Protein</p>
+                                            <h4 className='text-2xl'>124g</h4>
+                                        </div>
+                                   </li>
+                                   <li className='p-4 rounded-lg border flex gap-4 bg-yellow-50'>
+                                        <span className='w-4 rounded-full h-4 bg-yellow-400 mt-1 inline-block'></span>
+                                        <div>
+                                            <p>Carbohydrate</p>
+                                            <h4 className='text-2xl'>450g</h4>
+                                        </div>
+                                   </li>
+                                   <li className='p-4 rounded-lg border flex gap-4 bg-emerald-50'>
+                                        <span className='w-4 rounded-full h-4 bg-emerald-400 mt-1 inline-block'></span>
+                                        <div>
+                                            <p>Fats</p>
+                                            <h4 className='text-2xl'>100g</h4>
+                                        </div>
+                                   </li> 
+                                   <li className='p-4 rounded-lg border flex gap-4 bg-cyan-50'>
+                                        <span className='w-4 rounded-full h-4 bg-cyan-400 mt-1 inline-block'></span>
+                                        <div>
+                                            <p>Energy</p>
+                                            <h4 className='text-2xl'>2400 cal</h4>
+                                        </div>
+                                   </li> 
+                                </ul>
+                            </div>}
+                            <p class="text-slate-400">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. Lorem Ipsum is composed in a pseudo-Latin language which more or less corresponds to 'proper' Latin. It contains a series of real Latin words. This ancient dummy text is also incomprehensible, but it imitates the rhythm of most European languages in Latin script.</p>
+                            <p class="text-slate-400 italic border-x-4 border-indigo-600 rounded-ss-xl rounded-ee-xl mt-3 p-3">" There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "</p>
+                            <p class="text-slate-400 mt-3">{blogDetail?.desc} {blogDetail?.desc} {blogDetail?.desc}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="content_wrapper">
-                    <p className='mb-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h5 className='text-lg mb-5'>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h5>
-                    <p className='mb-5'>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p className='mb-12'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h5 className='text-lg mb-5'>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h5>
-                    <p className='mb-20'>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+
+                <div class="lg:col-span-3 md:col-span-6">
+                    <div class="sticky top-20">
+                        <h5 class="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 mt-8">Recent post</h5>
+                        <div class="flex items-center mt-4">
+                            <img src="/assets/images/blog/06.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="" />
+
+                            <div class="ms-3">
+                                <a href="#" class="font-semibold hover:text-indigo-600">Consultant Business</a>
+                                <p class="text-sm text-slate-400">1st May 2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mt-4">
+                            <img src="/assets/images/blog/07.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="" />
+
+                            <div class="ms-3">
+                                <a href="#" class="font-semibold hover:text-indigo-600">Grow Your Business</a>
+                                <p class="text-sm text-slate-400">1st May 2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mt-4">
+                            <img src="/assets/images/blog/08.jpg" class="h-16 rounded-md shadow dark:shadow-gray-800" alt="" />
+                            <div class="ms-3">
+                                <a href="#" class="font-semibold hover:text-indigo-600">Look On The Glorious Balance</a>
+                                <p class="text-sm text-slate-400">1st May 2022</p>
+                            </div>
+                        </div>
+
+                        <h5 class="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 mt-8">Popular Tags</h5>
+                        <ul class="list-none mt-8">
+                            <li class="inline-block m-2"><a href="#" class="px-3 py-1 text-slate-400 hover:text-white dark:hover:text-white bg-gray-50 dark:bg-slate-800 text-sm hover:bg-indigo-600 dark:hover:bg-indigo-600 rounded-md shadow dark:shadow-gray-800 duration-500">Weight loss</a></li>
+                            <li class="inline-block m-2"><a href="#" class="px-3 py-1 text-slate-400 hover:text-white dark:hover:text-white bg-gray-50 dark:bg-slate-800 text-sm hover:bg-indigo-600 dark:hover:bg-indigo-600 rounded-md shadow dark:shadow-gray-800 duration-500">Health Fitness</a></li>
+                            <li class="inline-block m-2"><a href="#" class="px-3 py-1 text-slate-400 hover:text-white dark:hover:text-white bg-gray-50 dark:bg-slate-800 text-sm hover:bg-indigo-600 dark:hover:bg-indigo-600 rounded-md shadow dark:shadow-gray-800 duration-500">Kids</a></li>
+                            <li class="inline-block m-2"><a href="#" class="px-3 py-1 text-slate-400 hover:text-white dark:hover:text-white bg-gray-50 dark:bg-slate-800 text-sm hover:bg-indigo-600 dark:hover:bg-indigo-600 rounded-md shadow dark:shadow-gray-800 duration-500">Muscle gain</a></li>
+                            <li class="inline-block m-2"><a href="#" class="px-3 py-1 text-slate-400 hover:text-white dark:hover:text-white bg-gray-50 dark:bg-slate-800 text-sm hover:bg-indigo-600 dark:hover:bg-indigo-600 rounded-md shadow dark:shadow-gray-800 duration-500">Yoga</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-       </section>
+        </section>
+        <div class="container relative md:mt-24 my-16">
+            <div class="md:flex justify-center">
+                <div class="lg:w-2/3 text-center">
+                    <h3 class="md:text-3xl text-2xl md:leading-normal leading-normal font-semibold mb-6">Subscribe our weekly subscription</h3>
+
+                    <p class="text-slate-400 max-w-xl mx-auto">Add some text to explain benefits of subscripton on your services. We'll send you the best of our blog just once a weekly.</p>
+
+                    <div class="mt-8">
+                        <div class="text-center subcribe-form">
+                            <form class="relative mx-auto max-w-xl">
+                                <input type="email" id="subemail" name="name" class="py-4 pe-40 ps-6 w-full h-[50px] outline-none text-black dark:text-white rounded-full bg-white/70 dark:bg-slate-900/70 border border-gray-100 dark:border-gray-700" placeholder="Enter your email id.." />
+                                <button type="submit" class="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center absolute top-[2px] end-[3px] h-[46px] bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white rounded-full">Subcribe Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <Footer />
         </>
     )
