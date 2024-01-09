@@ -88,36 +88,43 @@ export const ADV_FILTER = [
 ]
 
 export const BLOGS = [{
+    type: 'video',
     title: 'How to Maximize Time Spent at the Gym',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog1.jpg',
     link: '1'
 },{
+    type: 'recipe',
     title: 'Today is the Best Day to Start Training',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog2.jpg',
     link: '2'
 },{
+    type: 'blog',
     title: 'Simple Condition for all Around Fitness',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog3.jpg',
     link: '3'
 },{
+    type: 'blog',
     title: 'How to reduce belly fat',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog2.jpg',
     link: '4'
 },{
+    type: 'recipe',
     title: '10 ways to maximize your immunity',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog1.jpg',
     link: '5'
 },{
+    type: 'recipe',
     title: '5 best food to increase blood flow',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog3.jpg',
     link: "6"
 },{
+    type: 'blog',
     title: 'Top excersize to increase height naturally',
     desc: 'The phrasal sequence of the is now so that many campaign and benefit',
     imgUrl:'/assets/images/gym/blog2.jpg',
