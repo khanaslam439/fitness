@@ -50,7 +50,10 @@ const Footer = function(){
                     </div>
                 </div>
             </div>
-
+            <ul className="list-none text-center flex gap-4 justify-center mb-0">
+                <li className="inline"><a href="/term-conditions" target="_blank" className="">Term Conditions</a></li>
+                <li className="inline"><a href="/privacy-policy" target="_blank" className="">Privacy Policy</a></li>
+            </ul>
             <div className="py-[30px] px-0 border-t border-slate-800">
                 <div className="container relative text-center">
                     <div className="grid md:grid-cols-1">

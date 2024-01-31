@@ -7,6 +7,9 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+*{
+  transition: .5s ease;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -43,3 +46,26 @@ html,body{
   
 }
 
+
+.table_of_content{
+  margin:0;
+  overflow-x: visible;
+  border-left-width: 3px;
+  border-left-color: #818cf844;
+}
+
+.table_of_content a:focus{
+  position: relative;
+  color:#818cf8 !important;
+  font-weight: bold;
+}
+.table_of_content a:focus:before{
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #818cf8 ;  
+  z-index: 2;
+}

@@ -264,8 +264,8 @@ export default function Home() {
                 <p className="text-slate-400 max-w-xl mx-auto">Push your fitness further with our mix of facilities and we'll support you with advice on new and better ways to train.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 mt-8 gap-[30px]">
-                {blogList.map((blog,index) => index < 2 && (
+            <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 mt-8 gap-[30px]">
+                {blogList.map((blog,index) => index < 4 && (
                     <BlogCard title={blog.title} desc={blog.desc} link={blog.link} imgUrl={blog.imgUrl} />
                 ))}
             </div>

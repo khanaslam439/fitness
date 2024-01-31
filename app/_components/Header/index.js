@@ -22,7 +22,7 @@ const Header = ({varients='transparent'}) => {
             <nav  className="defaultscroll is-sticky" id="topnav">
                 <div className="container relative">
                     <Link className="logo float-left" href="/">
-                        <span className="inline-block dark:hidden">
+                        <span className="inline-block">
                             <Image 
                                 src="/assets/images/logo/logo-black.png" 
                                 className="l-dark" 
@@ -31,14 +31,13 @@ const Header = ({varients='transparent'}) => {
                                 alt="" 
                             />
                             <Image 
-                                src="/assets/images/logo/logo-white.png" 
+                                src={`/assets/images/logo/${varients == 'dark' ? 'logo-black' : 'logo-white'}.png`}
                                 className="l-light" 
                                 height={34} 
                                 width={120}    
                                 alt="" 
                             />
                         </span>
-                        <img src="assets/images/logo-light.png" height="24" className="hidden dark:inline-block" alt="" />
                     </Link>
 
                     <div className="menu-extras hidden md:block">
@@ -55,7 +54,7 @@ const Header = ({varients='transparent'}) => {
 
                     <ul className="buy-button list-none mb-0 float-right">
                         <li className="inline mb-0">
-                            <a href="#">
+                            <a href="/login">
                                 <span className="login-btn-primary"><span className="w-fit px-5 py-2 font-bold inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-lg bg-slate-600/6 hover:bg-indigo-600 border border-indigo-600 hover:border-indigo-600 text-indigo-600 hover:text-white">Get Free Demo</span></span>
                                 <span className="login-btn-light"><span className="w-fit px-4 py-2 font-bold inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-lg bg-gray-50 hover:text-white hover:bg-indigo-600 dark:bg-slate-900 dark:hover:bg-gray-700 border hover:border-indigo-600 dark:border-gray-700 dark:hover:border-gray-700">Get Free Demo</span></span> 
                             </a>
