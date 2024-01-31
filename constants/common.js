@@ -2,6 +2,7 @@ export const TRAINER_LIST = [{
     id:101,
     name: 'Reheman sharif',
     type: 'Yoga Trainer',
+    plan:'silver',
     filters:[
         {type:'level', value:'Expert'}, 
         {type:'session', value:'20 sessions'}, 
@@ -16,6 +17,7 @@ export const TRAINER_LIST = [{
     id:102,
     name: 'Sandhya',
     type: 'Kids Trainer',
+    plan:'gold',
     filters:[
         {type:'level', value:'Intermediate'}, 
         {type:'session', value:'25 sessions'}, 
@@ -30,6 +32,7 @@ export const TRAINER_LIST = [{
     id:103,
     name: 'Ishita Sahu',
     type: 'Online Trainer',
+    plan:'silver',
     filters:[
         {type:'level',value:'Beginner'}, 
         {type:'session', value:'12 sessions'}, 
@@ -44,6 +47,7 @@ export const TRAINER_LIST = [{
     id:104,
     name: 'Arush Kumar',
     type: 'Online Trainer',
+    plan: 'silver',
     filters:[
         {type:'level',value:'Expert'}, 
         {type:'session', value:'4 sessions'}, 
@@ -58,6 +62,7 @@ export const TRAINER_LIST = [{
     id:105,
     name: 'Nitika Ahuja',
     type: 'Fitness & Nutrition',
+    plan:'gold',
     filters:[
         {type:'level',value:'Beginner'}, 
         {type:'session', value:'18 sessions'}, 
@@ -72,6 +77,7 @@ export const TRAINER_LIST = [{
     id:106,
     name: 'Sanjay Rathod',
     type: 'Gym Trainer',
+    plan:'platinum',
     filters:[
         {type:'session', value:'2 sessions'}, 
         {type:'distance',value:'20km away'},
