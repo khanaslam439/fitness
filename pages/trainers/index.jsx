@@ -36,7 +36,7 @@ export default function Trainers(){
                             </div>
                             <div className="grid lg:grid-cols-3 lg:gap-[20px] gap-[20px]">
                                 {trainers && trainers.length > 0 && trainers.map((trainer,index) => {
-                                    const detail = {index, trainerId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink }
+                                    const detail = {index, trainerId: trainer.id, name: trainer.name, filters:trainer.filters, type: trainer.type, level: trainer.level,profileLink:trainer.profileLink, plan:trainer.plan }
                                     return <TrainerCard key={index} setOpen={setOpen} setActiveTrainer={setActiveTrainer} {...detail} />
                                 })}    
                             </div>

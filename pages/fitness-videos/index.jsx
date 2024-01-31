@@ -26,7 +26,7 @@ export default function Blogs(){
                                 <div class="absolute inset-0 bg-slate-600/70"></div>
 
                                 <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center">
-                                    <a href="/blogs/all" class="text-white font-semibold text-xl mb-0">Blogs</a>
+                                    <a href="/blogs/non-veg" class="text-white font-semibold text-xl mb-0">Blogs</a>
                                 </div>
                             </div>
                             <div class="group relative rounded-xl shadow-md dark:shadow-gray-800 overflow-hidden">
@@ -34,7 +34,7 @@ export default function Blogs(){
                                 <div class="absolute inset-0 bg-orange-600/70"></div>
 
                                 <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center">
-                                    <a href="/fitness-videos/all" class="text-white font-semibold text-xl mb-0">Excerise Videos</a>
+                                    <a href="#!" class="text-white font-semibold text-xl mb-0">Excerise Videos</a>
                                 </div>
                             </div>
                             <div class="group relative rounded-xl shadow-md dark:shadow-gray-800 overflow-hidden">
@@ -42,7 +42,7 @@ export default function Blogs(){
                                 <div class="absolute inset-0 bg-red-600/70"></div>
 
                                 <div class="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center">
-                                    <a href="/recipes/all" class="text-white font-semibold text-xl mb-0">Receipes</a>
+                                    <a href="#!" class="text-white font-semibold text-xl mb-0">Receipes</a>
                                 </div>
                             </div>
                         </div>      

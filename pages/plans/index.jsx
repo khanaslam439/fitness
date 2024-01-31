@@ -13,7 +13,7 @@ export default function Plans(){
             <Header />
             <PageHeader title={'See plans'} variant={'dark'} />
             <section className='bg-white py-16'>
-                <div className='px-20 grid lg:grid-cols-12 gap-[20px]'>        
+                <div className='px-20 grid lg:grid-cols-12 gap-[30px]'>        
                     <div className='lg:col-span-3'>
                         <ProfileCard isBtnHide={true} data={TRAINER_LIST[0]} />
                     </div>
