@@ -8,11 +8,11 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react';
  
-export default function blogDetail(){
+export default function videoDetail(){
     const params = useParams()
     const [blogDetail, setBlogDetail] = useState({});
     useEffect(() => {
-        let data = BLOGS.filter(trainer => (trainer.link).includes(params?.blogDetail) > -1);
+        let data = BLOGS.filter(trainer => (trainer.link).includes(params?.videoDetail) > -1);
         setBlogDetail(data[0])
     },[params])
     
