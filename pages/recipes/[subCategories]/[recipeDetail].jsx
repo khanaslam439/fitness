@@ -8,12 +8,12 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react';
  
-export default function blogDetail(){
+export default function recipeDetail(){
     const params = useParams()
     console.log(params)
     const [blogDetail, setBlogDetail] = useState({});
     useEffect(() => {
-        let data = BLOGS.filter(trainer => (trainer.link).includes(params?.blogDetail) > -1);
+        let data = BLOGS.filter(trainer => (trainer.link).includes(params?.recipeDetail) > -1);
         setBlogDetail(data[0])
     },[params])
     
