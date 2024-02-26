@@ -136,3 +136,27 @@ export const BLOGS = [{
     imgUrl:'/assets/images/gym/blog2.jpg',
     link: '7'
 }]
+
+
+export const PLANS = [
+    {
+        id: 1,
+        name: 'Monthly Plan',
+        cost: 6000
+    },
+    {
+        id: 2,
+        name: 'Quaterly Plan',
+        cost: 7500
+    },
+    {
+        id: 3,
+        name: 'Half Yearly Plan',
+        cost: 9000
+    },
+    {
+        id: 4,
+        name: 'Yearly Plan',
+        cost: 12000
+    },
+]
