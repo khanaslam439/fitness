@@ -1,0 +1,20 @@
+.blog_content_section table{
+    width: 100%;
+    margin: 2rem 0 3rem;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #0004;
+}
+
+.blog_content_section table thead{
+    border-bottom: 1px solid #0004;
+}
+
+.blog_content_section table tbody td{
+    font-size: 14px;
+}
+.blog_content_section table td,
+.blog_content_section table th{
+    padding: 15px 30px;
+    text-align: left;
+}

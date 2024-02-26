@@ -7,7 +7,8 @@ import { BLOGS } from '@/constants/common';
 import Image from 'next/image';
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react';
- 
+import './recipe.css';
+
 export default function recipeDetail(){
     const params = useParams()
     console.log(params)
@@ -62,7 +63,7 @@ export default function recipeDetail(){
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-span-8">
+                            <div className="col-span-8 blog_content_section">
                                 <div>
                                     <p className='font-semibold mb-4'>
                                         India is a land of different cultures, languages, and cuisines. With such diversity comes a wide range of staple foods that are a basic part of the Indian diet. They stay at the heart of every Indian meal. But do you know ‘What is staple food in India?’
@@ -70,6 +71,41 @@ export default function recipeDetail(){
                                     <p  className='font-semibold mb-4'>
                                         From fragrant rice to hearty lentils and nourishing wheat, staple foods in India form the backbone of our diets across various regions. They nourish us and play a major role in maintaining our good health.
                                     </p>
+                                
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Nutrient
+                                                </th>
+                                                <th>
+                                                    Amount per slice (120 Grams)
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calories</td>
+                                                <td>200-250 kcal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fat</td>
+                                                <td>8-10 grams</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carbohydrates</td>
+                                                <td>30-35 grams</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fiber</td>
+                                                <td>3-5 grams</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Protein</td>
+                                                <td>4-6 grams</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     <p  className='font-semibold mb-4'>
                                         This blog will explain the meaning of staple foods, their common types in India, and their nutritional benefits. So, if you are a food lover or curious about the nutrition of Indian staple dishes, this blog is for you. So, let’s begin the journey!
                                     </p>

@@ -15,7 +15,7 @@ export default function SubCategories(){
         <Header varients="dark" />
         {/* content part */}
         <main>
-            <section className="inset-0 relative bg-white pt-36 pb-12 overflow-hidden">
+            <section className="inset-0 relative bg-white pt-36 pb-36 overflow-hidden">
                 <div className="px-10 relative">
                     <div className="grid grid-cols-12 gap-[30px]">
                         <div className="lg:col-span-3 col-span-12">
@@ -31,7 +31,7 @@ export default function SubCategories(){
                                     <p className="mb-8">Total 7 results found.</p>
                                 </div>
                                 
-                                <div className="grid grid-cols-4 gap-[20px]">
+                                <div className="grid grid-cols-1 lg:grid-cols-4 gap-[20px]">
                                     {BLOGS && BLOGS.length > 0 && BLOGS.map(({title, desc, link, imgUrl}) => {
                                         return <BlogCard category={param?.subCategories} title={title} desc={desc} link={`/recipes/${param?.subCategories}/${link}`} imgUrl={imgUrl} />
                                     })}

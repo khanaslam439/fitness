@@ -1,0 +1,25 @@
+.plan_listing li {
+    cursor: pointer;
+}
+.plan_listing li span{
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    border-radius:50%;
+    border:2px solid #000;
+}
+.plan_listing li.enable span{
+    position: relative;
+    transition: .5s ease;
+}
+.plan_listing li.enable span:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #000;
+    transform: translate(-50%,-50%);
+}
