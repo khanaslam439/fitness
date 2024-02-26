@@ -22,7 +22,7 @@ export default function ProfileCard({data, isBtnHide=false}){
                     <p className="mb-2 text-sm text-gray-400">{data?.type}</p>
                     <label className="mb-5">(<i className="mdi mdi-star text-orange-500"></i>12 Reviews)</label>
                     <div className="cta_button mt-5 lg:mt-0" style={{display:isBtnHide ? 'none' : 'block'}}>
-                        <Link href="/plans" className='rounded-lg text-md m-2 p-2 px-4 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600 text-indigo-600 hover:text-white'>
+                        <Link href={`/plans/${data?.name?.replace(' ','_')}`} className='rounded-lg text-md m-2 p-2 px-4 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600/5 hover:bg-indigo-600 border-indigo-600 text-indigo-600 hover:text-white'>
                             {/* <i className='mdi mdi-cart fs-5 me-2'></i> */}
                             See Plans
                         </Link>
