@@ -2,6 +2,7 @@
     cursor: pointer;
 }
 .plan_listing li span{
+    display: inline-block;
     width: 24px;
     height: 24px;
     box-sizing: border-box;

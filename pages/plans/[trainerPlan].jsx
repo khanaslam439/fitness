@@ -14,7 +14,12 @@ export default function trainerPlan(){
     const [shift, updateShift] = useState(0);
     const activeUser = TRAINER_LIST.filter(el => params?.trainerPlan?.replace('_',' ') == el.name)[0];
     const [activePlan, setActivePlan] = useState(null);
+    const [planType, setPlanType] = useState(null);
     
+    const planTypeHandler = type => {
+        setPlanType(type);
+    }
+
     return (
         <>
             <Header />
@@ -34,20 +39,11 @@ export default function trainerPlan(){
                                 <span className='text-slate-500'>{activeUser?.type}</span>
                             </div>
                         </div>
-                        <div className='lg:col-span-4'>
-                            <div className='text-end relative -top-4 flex lg:justify-end justify-center items-center gap-3'>
-                                Plan Type: 
-                                <div className='relative rounded-full border border-indigo-600 w-fit overflow-hidden'>
-                                    <a className='py-2 px-5 inline-block cursor-pointer bg-indigo-600 text-white'>Online</a>
-                                    <a className='py-2 px-5 inline-block cursor-pointer text-indigo-600'>At Home</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
 
-            <section className='lg:pt-20 pb-10 container bg-white'>
+            <section className='lg:pt-10 pb-10 container bg-white'>
                 <div className='shadow-lg rounded-xl border border-slate-300 p-10'>
                     <h2 className='text-3xl mb-2 font-bold'>Choose your slot</h2>
                     <p className='text-md text-slate-500 mb-10'>Choose your best slot whenever you are avaiable</p>
@@ -89,51 +85,109 @@ export default function trainerPlan(){
                     </div>
                 </div>
             </section>
-            <section className='pt-10 pb-20 container bg-white'>
-                <div className='shadow-lg rounded-xl border border-slate-300 p-10'>
-                    <h2 className='text-3xl mb-2 font-bold text-center'>Choose your Plan</h2>
-                    <p className='text-md text-slate-500 text-center'>Choose your best plan to Transform your goal into reality</p>
-                    
-                    <div className="grid lg:grid-cols-2 grid-cols-1 mt-16 ">
-                        <div className='lg:order-1 order-2'>
-                            <h4 className='text-lg font-semibold mb-4'>Description</h4>
-                            <ul className='mb-10'>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-slate-900 rounded-full'></i>5 sessions per week</li>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-slate-900 rounded-full'></i>Total Sessions: 60</li>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-slate-900 rounded-full'></i>Please note that this package is not covered under our refund policy.</li>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-slate-900 rounded-full'></i>Per session, the cost is based on Yearly Plan pricing (excluding GST)</li>
-                            </ul>
+            <div className='container bg-white'>
+                <div className='p-10 pb-16 text-center border border-indigo-200 rounded-xl'>                    
+                    <h4 className='text-3xl mb-0 font-bold'>Trainer type</h4>
+                    <p className='text-md text-slate-500 mb-6'>choose your trainer type and Get a suitable plan</p>
+                    <div>
+                        <button onClick={e => planTypeHandler('home')} className={`p-3 px-4 mx-1 text-lg w-[120px] rounded-lg bg-indigo-100 text-indigo-600 hover:bg-indigo-600 hover:text-white ${planType == 'home' && 'bg-indigo-600 text-white'}`}>At Home</button>
+                        <button onClick={e => planTypeHandler('online')} className={`p-3 px-4 mx-1 text-lg w-[120px] rounded-lg bg-indigo-100 text-indigo-600 hover:bg-indigo-600 hover:text-white ${planType == 'online' && 'bg-indigo-600 text-white'}`}>Online</button>
+                        {/* <button></button> */}
+                    </div>                    
+                </div>
+            </div>
+            {planType == 'home' && 
+                <section className='container bg-white -mt-8'>
+                    <div className='shadow-lg rounded-xl border border-slate-300 p-10'>
+                        <h2 className='text-2xl mb-1 font-bold text-center'>Choose your Plan</h2>
+                        <p className='text-sm text-slate-500 text-center'>Choose your best plan to Transform your goal into reality <b>at home</b></p>
                         
-                            <h4 className='text-lg font-semibold mb-4'>What are benifit of membership?</h4>
-                            <ul>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> You enrol with the coach of your choice and select from available slots</li>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> Time slots shown here are as per your local timings</li>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> Each Personal Training session will be 50 minutes long</li>
-                                <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> On the selected slot, the coach will start training you live</li>
-                            </ul>
-                        </div>
-                        <div className='lg:order-2 order-1'>
-                            <ul className='plan_listing'>
-                                {
-                                    PLANS.map(plan => 
-                                        <li onClick={e => setActivePlan(plan)} className={`flex w-full justify-between rounded-lg border border-slate-300 lg:p-10 p-5 p-10 py-5 mb-4 ${(activePlan?.id == plan.id) ? "border-slate-900 enable" : ''}`}>
-                                            <span></span>
-                                            <p>{plan?.name}</p>
-                                            <h4 className='text-2xl font-bold'><sup className='text-sm'>₹</sup> {plan?.cost}</h4>
-                                        </li>    
-                                    )
-                                }
-                            </ul>
+                        <div className="grid lg:grid-cols-2 grid-cols-1 mt-16 ">
+                            <div className='lg:order-1 order-2'>
+                                <h4 className='text-lg font-semibold mb-4'>Description</h4>
+                                <ul className='mb-10'>
+                                    {activePlan?.description ? activePlan?.description.map(text =>  
+                                        <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-slate-900 rounded-full'></i> {text}</li>
+                                    ) : <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'>Select any plan to know more</li>}
+                                </ul>
+                            
+                                <h4 className='text-lg font-semibold mb-4'>What are benifit of membership?</h4>
+                                <ul>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> You enrol with the coach of your choice and select from available slots</li>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> Time slots shown here are as per your local timings</li>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> Each Personal Training session will be 50 minutes long</li>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> On the selected slot, the coach will start training you live</li>
+                                </ul>
+                            </div>
+                            <div className='lg:order-2 order-1'>
+                                <ul className='plan_listing'>
+                                    {
+                                        PLANS.map(plan => 
+                                            <li onClick={e => setActivePlan(plan)} className={`flex w-full flex-wrap items-center lg:items-start justify-between rounded-lg border border-slate-300 lg:p-10 p-5 p-10 py-5 mb-4 ${(activePlan?.id == plan.id) ? "border-slate-900 enable" : ''}`}>
+                                                <div className='flex gap-3'>
+                                                    <span></span>
+                                                    <p>{plan?.name}
+                                                        <small className='hidden lg:block text-orange-600 text-xs max-w-[280px]'>Additional <b>₹500</b> will be applicable per 5km distance</small>
+                                                    </p>
+                                                </div>
+                                                <h4 className='text-1.5xl font-bold'><small className='text-sm'>₹</small>{plan?.cost}</h4>
+                                                <small className='block lg:hidden w-full mt-2 text-orange-600 text-xs'>Additional <b>₹500</b> will be applicable per 5km distance</small>
+                                            </li>    
+                                        )
+                                    }
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            {/* <PageHeader title={null} /> */}
+                </section>
+            }
+            {planType == 'online' && 
+                <section className='container bg-white -mt-8'>
+                    <div className='shadow-lg rounded-xl border border-slate-300 p-10'>
+                        <h2 className='text-3xl mb-2 font-bold text-center'>Choose your Plan</h2>
+                        <p className='text-md text-slate-500 text-center'>Choose your best plan to Transform your goal into reality <b>for Online</b></p>
+                        
+                        <div className="grid lg:grid-cols-2 grid-cols-1 mt-16 ">
+                            <div className='lg:order-1 order-2'>
+                                <h4 className='text-lg font-semibold mb-4'>Description</h4>
+                                <ul className='mb-10'>
+                                    {activePlan?.description ? activePlan?.description.map(text =>  
+                                        <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-slate-900 rounded-full'></i> {text}</li>
+                                    ) : <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'>Select any plan to know more</li>}
+                                </ul>
+                            
+                                <h4 className='text-lg font-semibold mb-4'>What are benifit of membership?</h4>
+                                <ul>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> You enrol with the coach of your choice and select from available slots</li>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> Time slots shown here are as per your local timings</li>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> Each Personal Training session will be 50 minutes long</li>
+                                    <li className='w-80 flex gap-1 text-sm mt-2 mb-4 text-slate-700'><i className='me-1 uil uil-check-circle text-green-500'></i> On the selected slot, the coach will start training you live</li>
+                                </ul>
+                            </div>
+                            <div className='lg:order-2 order-1'>
+                                <ul className='plan_listing'>
+                                    {
+                                        PLANS.map(plan => 
+                                            <li onClick={e => setActivePlan(plan)} className={`flex w-full justify-between rounded-lg border border-slate-300 lg:p-10 p-5 p-10 py-5 mb-4 ${(activePlan?.id == plan.id) ? "border-slate-900 enable" : ''}`}>
+                                                <span></span>
+                                                <p>{plan?.name}</p>
+                                                <h4 className='text-2xl font-bold'><sup className='text-sm'>₹</sup> {plan?.cost}</h4>
+                                            </li>    
+                                        )
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+            <div className='py-10 bg-white'></div>
+
             {activePlan
                  ?
                 <div className='py-6 z-40 bg-white fixed bottom-0 left-0 right-0 border-t-2 border-t-indigo-600'>
                     <div className="container">
-                        <div className="flex lg:justify-between lg:gap-0 gap-10 flex-wrap items-center">
+                        <div className="flex justify-center lg:justify-between lg:gap-0 gap-10 flex-wrap items-center">
                             <p className='text-xl text-slate-900 font-semibold'>
                                 <span className='block text-indigo-500 text-sm font-normal'>Plan</span>
                                 {activePlan?.name}
@@ -141,7 +195,7 @@ export default function trainerPlan(){
                             <h2 className='text-2xl text-slate-900 font-bold '>
                                 <span className='block text-indigo-500 text-sm font-normal'>Price</span>
                                 INR {activePlan?.cost}</h2>
-                            <Link href={'/checkout'} className='w-[300px] px-4 py-3 font-bold inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-lg text-white bg-indigo-600 border hover:border-indigo-600'>Proceed Checkout</Link>
+                            <Link href={'/checkout'} className='w-[300px] -mt-4 lg:mt-0 px-4 py-3 font-bold inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-lg text-white bg-indigo-600 border hover:border-indigo-600'>Proceed Checkout</Link>
                         </div>
                     </div>
                 </div> : ''
