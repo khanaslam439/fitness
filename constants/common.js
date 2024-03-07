@@ -1,3 +1,6 @@
+
+const EXTRA_CHARGE = 599;
+
 export const TRAINER_LIST = [{
     id:101,
     name: 'Reheman sharif',
@@ -142,21 +145,25 @@ export const PLANS = [
     {
         id: 1,
         name: 'Monthly Plan',
-        cost: 6000
+        cost: 6000,
+        description: ['2 sessions per week', 'Total Sessions: 24', 'Please note that this package is not covered under our refund policy', 'Per session, the cost is based on Yearly Plan pricing (excluding GST)']
     },
     {
         id: 2,
         name: 'Quaterly Plan',
-        cost: 7500
+        cost: 7500,
+        description: ['4 sessions per week', 'Total Sessions: 48', 'Please note that this package is not covered under our refund policy', 'Per session, the cost is based on Yearly Plan pricing (excluding GST)']
     },
     {
         id: 3,
         name: 'Half Yearly Plan',
-        cost: 9000
+        cost: 9000,
+        description: ['6 sessions per week', 'Total Sessions: 72', 'Please note that this package is not covered under our refund policy', 'Per session, the cost is based on Yearly Plan pricing (excluding GST)']
     },
     {
         id: 4,
         name: 'Yearly Plan',
-        cost: 12000
+        cost: 12000,
+        description: ['12 sessions per week', 'Total Sessions: 140', 'Please note that this package is not covered under our refund policy', 'Per session, the cost is based on Yearly Plan pricing (excluding GST)']
     },
 ]
