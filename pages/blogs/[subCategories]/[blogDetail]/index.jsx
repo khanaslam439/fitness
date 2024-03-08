@@ -1,4 +1,5 @@
 "use client";
+import Accordion from '@/app/_components/Accordion';
 import BlogCard from '@/app/_components/BlogCard';
 import Footer from '@/app/_components/Footer';
 import Header from '@/app/_components/Header';
@@ -47,21 +48,21 @@ export default function blogDetail(){
             <div className="grid md:grid-cols-1 grid-cols-1 gap-[30px]">
                 <div className="lg:col-span-12 md:col-span-6">
                     <div className="py-10 rounded-md">
-                        <img src={`/assets/images/blog/food.jpg`} className="border rounded-md h-[450px] w-full object-cover"  alt="" />
+                        <img src={`/assets/images/blog/food.jpg`} className="border rounded-md h-[300px] md:h-[450px] w-full object-cover"  alt="" />
                         
-                        <div className="mt-12 grid grid-cols-12 h-auto relative">
-                            <div className="col-span-4 h-full">
+                        <div className="mt-12 grid grid-cols-1 md:grid-cols-12 h-auto relative">
+                            <div className="hidden md:block md:col-span-4 h-full">
                                 <div style={{position:'sticky', top:100}}>
                                     <h4 className='text-xl font-bold mb-4'>Table of content</h4>
                                     <ul className='table_of_content pl-4 border-l-2 py-2 border-l-slate-400 overflow-y-auto flex flex-col max-w-[300px] gap-2 max-h-[300px]'>
-                                        <li><a href="javascript:;" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>What Is A Staple Food In India?</a></li>
-                                        <li><a href="javascript:;" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>Common Staple Foods Of India</a></li>
-                                        <li><a href="javascript:;" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>Conclusion</a></li>
-                                        <li><a href="javascript:;" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>Frequently Asked Questions</a></li>
+                                        <li><a href="#para_1" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>What Is A Staple Food In India?</a></li>
+                                        <li><a href="#para_2" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>Common Staple Foods Of India</a></li>
+                                        <li><a href="#para_3" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>Conclusion</a></li>
+                                        <li><a href="#para_4" className='font-medium text-sm focus:text-indigo-500 text-slate-400'>Frequently Asked Questions</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-span-8">
+                            <div className="md:col-span-8">
                                 <div>
                                     <p className='font-semibold mb-4'>
                                         India is a land of different cultures, languages, and cuisines. With such diversity comes a wide range of staple foods that are a basic part of the Indian diet. They stay at the heart of every Indian meal. But do you know ‘What is staple food in India?’
@@ -72,6 +73,7 @@ export default function blogDetail(){
                                     <p  className='font-semibold mb-4'>
                                         This blog will explain the meaning of staple foods, their common types in India, and their nutritional benefits. So, if you are a food lover or curious about the nutrition of Indian staple dishes, this blog is for you. So, let’s begin the journey!
                                     </p>
+                                    <div id='para_1' className='mb-24'></div>
                                     <div>
                                         <h4 className='text-xl font-bold mt-10 mb-6'>What Is A Staple Food In India?</h4>
                                         <p className='mb-4'>A staple food is a type of food that is regularly consumed and forms a significant part of a population’s diet. It is a primary food item important for meeting daily nutritional needs.</p>
@@ -85,10 +87,12 @@ export default function blogDetail(){
                                             <li><b>West India:</b> Moving westwards to Gujarat and Rajasthan, pearl millet, jowar, and gram flour have an edge over wheat or rice. The Western states also have a love for lentils like dal as well as spicy curries.</li>
                                         </ul>
                                     </div>
+                                    <div id='para_2' className='mb-24'></div>
                                     <div>
                                         <h4 className='text-xl font-bold mt-10 mb-6'>Common Staple Foods Of India</h4>
                                         <p className='mb-4'>Each Indian region has its favorite staple food, from rice to wheat, millets to lentils. These are based on availability and cultural preferences. These staple foods form the foundation of Indian dishes and provide essential nutrients for a well-balanced diet.</p>
                                     </div>
+                                    <div id='para_3' className='mb-24'></div>
                                     <div>
                                         <h4 className='text-xl font-bold mt-10 mb-6'>Conclusion</h4>
                                         <p className='mb-4'>This blog explains ‘What is staple food in India and its benefits?’ India offers a wide range of staple food options that are delicious but also supply us with essential nutrients. From rice to wheat, lentils to dairy, each region has its unique staples that reflect local tastes.</p>
@@ -96,16 +100,13 @@ export default function blogDetail(){
                                         <p className='mb-4'>You can connect with our Fitelo experts for personalized diet plans. They will include these nutritious staple foods for your health benefits.</p>
                                         <p className='mb-4'>So, you must include these Indian staples in a balanced diet to ensure proper nutrition. Combining different grains with pulses or vegetables can create nourishing meals that are best for your health.</p>
                                     </div>
+                                    <div id='para_4'  className='mb-24'></div>
                                     <div>
                                         <h4 className='text-xl font-bold mt-10 mb-6'>Frequently Asked Questions</h4>
 
-                                        <h5 className='text-lg font-semibold mb-4'>What Are The Staple Foods In India?</h5>
-                                        <p className='mb-4'>In India, rice and wheat are the main staple foods used to make different meals. Lentils and dairy are also important staple foods in the Indian diet that help maintain good health.</p>
-                                        <h5 className='text-lg font-semibold mb-4'>What Are The Health Benefits Of Indian Staple Foods?</h5>
-                                        <p className='mb-4'>Indian staple foods are rich in carbohydrates, protein, and essential nutrients. They provide energy and support overall health. They also help maintain a healthy weight and reduce the risk of chronic diseases.</p>
-                                        <h5 className='text-lg font-semibold mb-4'>Are There Alternatives To Rice And Wheat In The Indian Staple Diet?</h5>
-                                        <p className='mb-4'>Yes, there are several alternatives to rice and wheat in the Indian staple diet, including millets, sorghum, and barley. These grains are often used to make traditional dishes and provide a nutritious alternative to rice and wheat.</p>
-                                        
+                                        <Accordion title="What Are The Staple Foods In India?" description="In India, rice and wheat are the main staple foods used to make different meals. Lentils and dairy are also important staple foods in the Indian diet that help maintain good health." /> 
+                                        <Accordion title="What Are The Health Benefits Of Indian Staple Foods?" description="Indian staple foods are rich in carbohydrates, protein, and essential nutrients. They provide energy and support overall health. They also help maintain a healthy weight and reduce the risk of chronic diseases." />
+                                        <Accordion title="Are There Alternatives To Rice And Wheat In The Indian Staple Diet" description="Yes, there are several alternatives to rice and wheat in the Indian staple diet, including millets, sorghum, and barley. These grains are often used to make traditional dishes and provide a nutritious alternative to rice and wheat." />
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +116,7 @@ export default function blogDetail(){
             </div>
             <div className='py-20'>
                 <h4 className='text-3xl text-indigo-500 mb-10 font-bold'>Related Blogs</h4>
-                <div className='grid grid-cols-4 gap-[20px]'>
+                <div className='grid lg:grid-cols-4 grid-cols-1 gap-[20px]'>
                     {BLOGS && BLOGS.length > 0 && BLOGS.map(({title, desc, link, imgUrl}, index) => {
                         return index < 4 ? <BlogCard title={title} desc={desc} link={link} imgUrl={imgUrl} /> : ''
                     })}

@@ -48,10 +48,10 @@ export default function videoDetail(){
             <div className="grid md:grid-cols-1 grid-cols-1 gap-[30px]">
                 <div className="lg:col-span-12 md:col-span-6">
                     <div className="py-10 rounded-md">
-                    <video src="/assets/images/demo.mp4" className='rounded-xl object-cover w-full h-[450px] object-auto' controls></video>
+                    <video src="/assets/images/demo.mp4" className='rounded-xl object-cover w-full h-[300px] md:h-[450px] object-auto' controls></video>
                         
-                        <div className="mt-12 grid grid-cols-12 h-auto relative">
-                            <div className="col-span-4 h-full">
+                        <div className="mt-12 grid grid-cols-1 md:grid-cols-12 h-auto relative">
+                            <div className="hidden md:block col-span-4 h-full">
                                 <div style={{position:'sticky', top:100}}>
                                     <h4 className='text-xl font-bold mb-4'>Table of content</h4>
                                     <ul className='table_of_content pl-4 border-l-2 py-2 border-l-slate-400 overflow-y-auto flex flex-col gap-2 max-w-[300px] max-h-[300px]'>
@@ -63,7 +63,7 @@ export default function videoDetail(){
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-span-8">
+                            <div className="md:col-span-8">
                                 <div>
                                     <p className='font-semibold mb-4'>
                                         Are you looking for a fun and enjoyable way to get in shape? Try a dancing exercise to lose weight! Not only dancing is a great way to burn calories and tone your muscles, but it also has many other benefits for your physical and mental health.
@@ -110,7 +110,7 @@ export default function videoDetail(){
             </div>
             <div className='py-20'>
                 <h4 className='text-3xl text-indigo-500 mb-10 font-bold'>Related Blogs</h4>
-                <div className='grid grid-cols-4 gap-[20px]'>
+                <div className='grid grid-cols-1 md:grid-cols-4 gap-[20px]'>
                     {BLOGS && BLOGS.length > 0 && BLOGS.map(({title, desc, link, imgUrl}, index) => {
                         return index < 4 ? <BlogCard title={title} desc={desc} link={link} imgUrl={imgUrl} /> : ''
                     })}
